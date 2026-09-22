@@ -120,17 +120,30 @@ jobs:
           gzip -9c "$OUT/Packages" > "$OUT/Packages.gz"
           bzip2 -9c "$OUT/Packages" > "$OUT/Packages.bz2"
 
-          cat > "$OUT/Release" <<'EOF'
-          Origin: Rashad Repo
-          Label: Rashad Repo
-          Suite: stable
-          Version: 1.0
-          Codename: ios
-          Architectures: iphoneos-arm64
-          Components: main
-          Description: Rashad's Sileo repository for rootless jailbreak packages
-          EOF
-          sed -i '' 's/^          //' "$OUT/Release"
+          DATE_RFC2822="$(LC_ALL=C date -R)"
+          {
+            echo "Origin: Rashad Repo"
+            echo "Label: Rashad Repo"
+            echo "Suite: stable"
+            echo "Version: 1.1"
+            echo "Codename: ios"
+            echo "Date: $DATE_RFC2822"
+            echo "Architectures: iphoneos-arm64"
+            echo "Components: main"
+            echo "Description: Rashad's Sileo repository for rootless jailbreak packages"
+            echo "MD5Sum:"
+            for FILE in Packages Packages.gz Packages.bz2; do
+              HASH="$(md5 -q "$OUT/$FILE")"
+              SIZE="$(stat -f%z "$OUT/$FILE")"
+              printf " %s %16s %s\n" "$HASH" "$SIZE" "$FILE"
+            done
+            echo "SHA256:"
+            for FILE in Packages Packages.gz Packages.bz2; do
+              HASH="$(shasum -a 256 "$OUT/$FILE" | awk '{print $1}')"
+              SIZE="$(stat -f%z "$OUT/$FILE")"
+              printf " %s %16s %s\n" "$HASH" "$SIZE" "$FILE"
+            done
+          } > "$OUT/Release"
 
           cat > "$OUT/index.html" <<'EOF'
           <!doctype html>
