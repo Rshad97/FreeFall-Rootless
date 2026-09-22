@@ -1,0 +1,11 @@
+Package: com.rashad.freefallrootless
+Name: FreeFall Rootless
+Version: 3.0.1
+Architecture: iphoneos-arm64
+Description: Rootless Dopamine/ElleKit port of FreeFall. Plays a sound when free fall is detected.
+Maintainer: Rashad
+Author: Steven Rolfe; rootless port based on alexPNG's fork
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit, preferenceloader
+Conflicts: com.chewmieser.freefall
+Replaces: com.chewmieser.freefall
