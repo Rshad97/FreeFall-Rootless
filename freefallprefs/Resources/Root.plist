@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key>
+    <string>FreeFall Rootless</string>
+    <key>items</key>
+    <array>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>FreeFall Rootless</string>
+            <key>footerText</key>
+            <string>Dopamine 3 / Rootless port. Changes apply immediately.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>label</key>
+            <string>Enabled</string>
+            <key>defaults</key>
+            <string>com.rashad.freefallrootless</string>
+            <key>key</key>
+            <string>enabled</string>
+            <key>default</key>
+            <true/>
+            <key>PostNotification</key>
+            <string>com.rashad.freefallrootless/ReloadPrefs</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Detection</string>
+            <key>footerText</key>
+            <string>Adjust the free-fall and impact detection sensitivity.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSliderCell</string>
+            <key>label</key>
+            <string>Free-fall sensitivity</string>
+            <key>defaults</key>
+            <string>com.rashad.freefallrootless</string>
+            <key>key</key>
+            <string>fallingSensitivity</string>
+            <key>default</key>
+            <real>0.04</real>
+            <key>min</key>
+            <real>0.01</real>
+            <key>max</key>
+            <real>0.25</real>
+            <key>showValue</key>
+            <true/>
+            <key>PostNotification</key>
+            <string>com.rashad.freefallrootless/ReloadPrefs</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSliderCell</string>
+            <key>label</key>
+            <string>Impact threshold</string>
+            <key>defaults</key>
+            <string>com.rashad.freefallrootless</string>
+            <key>key</key>
+            <string>stoppingSensitivity</string>
+            <key>default</key>
+            <real>6.0</real>
+            <key>min</key>
+            <real>2.0</real>
+            <key>max</key>
+            <real>8.0</real>
+            <key>showValue</key>
+            <true/>
+            <key>PostNotification</key>
+            <string>com.rashad.freefallrootless/ReloadPrefs</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>Sound: /var/jb/Library/FreeFallRootless/FreeFallScream.wav</string>
+        </dict>
+    </array>
+</dict>
+</plist>
