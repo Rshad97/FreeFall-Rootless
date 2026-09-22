@@ -17,4 +17,4 @@ include $(THEOS_MAKE_PATH)/aggregate.mk
 
 .PHONY: wilhelm-audio
 wilhelm-audio:
-	@./scripts/fetch-wilhelm-scream.sh
+	@sh ./scripts/fetch-wilhelm-scream.sh
