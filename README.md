@@ -19,9 +19,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 - Adjustable impact/reset threshold
 - CoreMotion callback-based monitoring instead of a polling timer
 - Cooldown/reset logic to avoid repeated triggers during one fall
-- Replaceable WAV sound at:
-
-  `/var/jb/Library/FreeFallRootless/FreeFallScream.wav`
+- Replaceable WAV sound at `/var/jb/Library/FreeFallRootless/FreeFallScream.wav`
 
 ## Project layout
 
@@ -32,7 +30,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 - `layout/` — Rootless package resources and PreferenceLoader entry
 - `freefallprefs/` — Settings bundle
 - `.github/workflows/build.yml` — macOS GitHub Actions build
-- `scripts/` — optional on-device build/ABI conversion helpers
+- `scripts/` — on-device build/ABI conversion helpers
 
 ## Recommended build: macOS / GitHub Actions
 
@@ -42,22 +40,25 @@ With Theos installed:
 
 ```sh
 export THEOS="$HOME/theos"
+sh ./scripts/fetch-wilhelm-scream.sh
 make clean package FINALPACKAGE=1
 ```
 
 The resulting package is written to `packages/`.
 
-The repository also includes a GitHub Actions workflow. Push the project to GitHub and run **Build Rootless DEB** from Actions.
+The repository also includes a GitHub Actions workflow. Run **Build Rootless DEB** from the Actions tab.
 
 ## On-device build (Dopamine / NewTerm)
 
 On-device compilation can produce the older arm64e ABI. If that happens, use **Allemande** to convert the final Mach-O files before installing the package.
 
-See:
+See `docs/ON_DEVICE_BUILD.md`.
 
-`docs/ON_DEVICE_BUILD.md`
+The combined helper is:
 
-The helper script `scripts/build-on-device.sh` automates the build plus ABI patching when Allemande is installed.
+```sh
+sh ./scripts/build-on-device.sh
+```
 
 ## Preferences
 
@@ -79,20 +80,13 @@ Darwin reload notification:
 
 ## Sound
 
-The default sound is the classic **Wilhelm Scream**. The audio is intentionally not vendored in the source archive; the documented build flows fetch the CC0 WAV from the USC/Sunset Editorial collection on Internet Archive before packaging. The installed sound is placed at:
+The default sound is the classic **Wilhelm Scream**. The audio is not vendored in the repository; the documented build flows fetch the CC0 WAV from the USC/Sunset Editorial collection on Internet Archive before packaging.
 
-```text
-/var/jb/Library/FreeFallRootless/FreeFallScream.wav
-```
+Installed path:
 
-For a manual build, fetch the default audio first:
+`/var/jb/Library/FreeFallRootless/FreeFallScream.wav`
 
-```sh
-./scripts/fetch-wilhelm-scream.sh
-make clean package FINALPACKAGE=1
-```
-
-The on-device helper and GitHub Actions workflow do this automatically. See `AUDIO_LICENSE.md` for the CC0 source and licensing details.
+See `AUDIO_LICENSE.md` for source and licensing information.
 
 ## Credits
 
