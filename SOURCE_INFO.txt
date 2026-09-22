@@ -1,0 +1,5 @@
+Project: FreeFall Rootless
+Version: 3.0.1
+Package ID: com.rashad.freefallrootless
+License: GPL-3.0
+Primary target: Dopamine rootless / ElleKit / arm64e SpringBoard
