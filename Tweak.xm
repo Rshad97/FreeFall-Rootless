@@ -77,7 +77,13 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
     NSString *soundPath = [ROOT_PATH_NS(@"/Library/FreeFallRootless") stringByAppendingPathComponent:@"FreeFallScream.wav"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:soundPath]) {
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &_screamSound);
+        OSStatus soundStatus = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &_screamSound);
+        if (soundStatus != kAudioServicesNoError) {
+            NSLog(@"[FreeFallRootless] Failed to create SystemSoundID (%d) for %@", (int)soundStatus, soundPath);
+            _screamSound = 0;
+        } else {
+            NSLog(@"[FreeFallRootless] Loaded fall sound: %@", soundPath);
+        }
     }
 
     [self stopMonitoring];

@@ -1,17 +1,23 @@
 # Audio asset: Wilhelm Scream
 
-The default fall sound is the classic **Wilhelm Scream**.
+FreeFall Rootless uses the classic **Wilhelm Scream** as its default fall sound.
 
-The build helpers fetch the WAV from the USC/Sunset Editorial sound-effects collection hosted by Internet Archive:
+The build helper downloads the short Wikimedia Commons clip:
 
-`SCREAM/VOXScrm_Man eaten by alligator; screams [Wilhelm_CS_USC.wav`
+- File: `Wilhelm_Scream.ogg`
+- Duration: about 1.6 seconds
+- License: **CC0 1.0 Universal / public-domain dedication**
+- Source: https://commons.wikimedia.org/wiki/File:Wilhelm_Scream.ogg
 
-Source collection:
-https://archive.org/details/SSE_Library_VOICES
+Wikimedia Commons documents that this short clip was trimmed from the USC/Sunset Editorial sound-effects collection hosted by Internet Archive, around the 0:27 mark of the original recording.
 
-A trimmed version is also documented by Wikimedia Commons:
-https://commons.wikimedia.org/wiki/File:Wilhelm_Scream.ogg
+For compatibility with iOS System Sound Services, the build converts the OGG to:
 
-Wikimedia Commons identifies the sound as **CC0 1.0 Universal / public-domain dedication**, and the Internet Archive collection lists usage as **CC0 1.0 Universal**.
+- WAV container
+- Linear PCM
+- 16-bit
+- Mono
+- 48 kHz
+- Under 30 seconds
 
-The audio is fetched during the documented build flows rather than duplicated under the GPL license. The GPL-3.0 license applies to the FreeFall Rootless source code; the Wilhelm audio retains its CC0 status.
+The GPL-3.0 license applies to the FreeFall Rootless source code. The Wilhelm audio retains its CC0 status.

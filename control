@@ -1,8 +1,8 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.0.1
+Version: 3.0.2
 Architecture: iphoneos-arm64
-Description: Rootless Dopamine/ElleKit port of FreeFall. Plays a sound when free fall is detected.
+Description: Rootless Dopamine/ElleKit port of FreeFall. Plays the Wilhelm Scream when free fall is detected.
 Maintainer: Rashad
 Author: Steven Rolfe; rootless port based on alexPNG's fork
 Section: Tweaks

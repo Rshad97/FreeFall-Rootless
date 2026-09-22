@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.0.1**
+- Version: **3.0.2**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -80,7 +80,7 @@ Darwin reload notification:
 
 ## Sound
 
-The default sound is the classic **Wilhelm Scream**. The audio is not vendored in the repository; the documented build flows fetch the CC0 WAV from the USC/Sunset Editorial collection on Internet Archive before packaging.
+The default sound is the classic **Wilhelm Scream**. Build scripts fetch the CC0 1.6-second Wikimedia Commons clip and convert it to a System Sound compatible WAV: mono, 48 kHz, 16-bit linear PCM. This is important because iOS System Sound Services only supports short sounds (30 seconds or less) in linear PCM/IMA4 inside CAF, AIF, or WAV containers.
 
 Installed path:
 

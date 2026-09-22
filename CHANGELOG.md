@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.2
+
+- Fixed Wilhelm Scream playback in the Sileo/GitHub build.
+- Previous 3.0.1 package mistakenly embedded the full 39.27-second USC source WAV; iOS System Sound Services only supports sounds 30 seconds or shorter.
+- Build now downloads the CC0 1.6-second Wikimedia Commons Wilhelm clip.
+- Converts audio to mono 48 kHz, 16-bit linear PCM WAV for System Sound compatibility.
+- Added runtime logging when `AudioServicesCreateSystemSoundID` fails.
+- Sileo repository metadata is now generated from the built DEB instead of hardcoding the version.
+
+
 ## 3.0.1
 
 - Changed the default fall sound to the classic Wilhelm Scream.

@@ -17,7 +17,7 @@ jobs:
 
       - name: Install build tools
         run: |
-          brew install ldid dpkg
+          brew install ldid dpkg ffmpeg
 
       - name: Install Theos
         run: |
@@ -30,9 +30,11 @@ jobs:
           mkdir -p "$THEOS/sdks"
           tar -xf /tmp/iPhoneOS16.5.sdk.tar.xz -C "$THEOS/sdks"
 
-      - name: Fetch CC0 Wilhelm Scream
+      - name: Prepare CC0 Wilhelm Scream
         run: |
           sh ./scripts/fetch-wilhelm-scream.sh
+          file layout/Library/FreeFallRootless/FreeFallScream.wav
+          ffprobe -v error -show_entries stream=codec_name,sample_rate,channels,bits_per_sample -show_entries format=duration -of default=nw=1 layout/Library/FreeFallRootless/FreeFallScream.wav
 
       - name: Build package
         run: |
@@ -57,6 +59,16 @@ jobs:
           DEB_NAME="$(basename "$DEB")"
           cp "$DEB" "$OUT/debs/$DEB_NAME"
 
+          PKG="$(dpkg-deb -f "$DEB" Package)"
+          NAME="$(dpkg-deb -f "$DEB" Name)"
+          VERSION="$(dpkg-deb -f "$DEB" Version)"
+          ARCH="$(dpkg-deb -f "$DEB" Architecture)"
+          DESC="$(dpkg-deb -f "$DEB" Description)"
+          MAINTAINER="$(dpkg-deb -f "$DEB" Maintainer)"
+          SECTION="$(dpkg-deb -f "$DEB" Section)"
+          DEPENDS="$(dpkg-deb -f "$DEB" Depends)"
+          CONFLICTS="$(dpkg-deb -f "$DEB" Conflicts)"
+          REPLACES="$(dpkg-deb -f "$DEB" Replaces)"
           SIZE="$(stat -f%z "$OUT/debs/$DEB_NAME")"
           MD5="$(md5 -q "$OUT/debs/$DEB_NAME")"
           SHA1="$(shasum -a 1 "$OUT/debs/$DEB_NAME" | awk '{print $1}')"
@@ -64,17 +76,16 @@ jobs:
           SHA512="$(shasum -a 512 "$OUT/debs/$DEB_NAME" | awk '{print $1}')"
 
           cat > "$OUT/Packages" <<EOF
-          Package: com.rashad.freefallrootless
-          Name: FreeFall Rootless
-          Version: 3.0.1
-          Architecture: iphoneos-arm64
-          Description: Rootless Dopamine/ElleKit port of FreeFall. Plays the Wilhelm Scream when free fall is detected.
-          Maintainer: Rashad
-          Author: Steven Rolfe; rootless port by Rashad
-          Section: Tweaks
-          Depends: firmware (>= 15.0), ellekit, preferenceloader
-          Conflicts: com.chewmieser.freefall
-          Replaces: com.chewmieser.freefall
+          Package: $PKG
+          Name: $NAME
+          Version: $VERSION
+          Architecture: $ARCH
+          Description: $DESC
+          Maintainer: $MAINTAINER
+          Section: $SECTION
+          Depends: $DEPENDS
+          Conflicts: $CONFLICTS
+          Replaces: $REPLACES
           Homepage: https://github.com/Rshad97/FreeFall-Rootless
           Filename: ./debs/$DEB_NAME
           Size: $SIZE
@@ -84,13 +95,12 @@ jobs:
           SHA512: $SHA512
 
           EOF
-
           sed -i '' 's/^          //' "$OUT/Packages"
 
           gzip -9c "$OUT/Packages" > "$OUT/Packages.gz"
           bzip2 -9c "$OUT/Packages" > "$OUT/Packages.bz2"
 
-          cat > "$OUT/Release" <<'EOF'
+          cat > "$OUT/Release" <<EOF
           Origin: Rashad Repo
           Label: Rashad Repo
           Suite: stable
@@ -102,24 +112,20 @@ jobs:
           EOF
           sed -i '' 's/^          //' "$OUT/Release"
 
-          cat > "$OUT/index.html" <<'EOF'
+          cat > "$OUT/index.html" <<EOF
           <!doctype html>
           <html lang="en">
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <title>Rashad Repo</title>
-            <style>
-              body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:760px;margin:50px auto;padding:0 20px;line-height:1.6}
-              code{background:#f2f2f7;padding:4px 7px;border-radius:6px;word-break:break-all}
-            </style>
           </head>
           <body>
             <h1>Rashad Repo</h1>
             <p>Sileo repository for rootless jailbreak tweaks.</p>
-            <h2>Available package</h2>
-            <p><strong>FreeFall Rootless 3.0.1</strong> — Dopamine/ElleKit rootless port with the Wilhelm Scream.</p>
-            <p>Source code: <a href="https://github.com/Rshad97/FreeFall-Rootless">GitHub</a></p>
+            <h2>FreeFall Rootless $VERSION</h2>
+            <p>Dopamine/ElleKit rootless port with the classic Wilhelm Scream.</p>
+            <p><a href="https://github.com/Rshad97/FreeFall-Rootless">Source code</a></p>
           </body>
           </html>
           EOF
@@ -138,6 +144,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Publish Sileo repo for FreeFall Rootless 3.0.1"
+          git commit -m "Publish Sileo repo"
           git remote add origin "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
           git push --force origin gh-pages
