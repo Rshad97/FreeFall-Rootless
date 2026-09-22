@@ -1,15 +1,23 @@
-name: Build Rootless DEB
+name: Build Rootless DEB and Sileo Repo
 
 on:
   workflow_dispatch:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: macos-14
+
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          brew install ldid dpkg
 
       - name: Install Theos
         run: |
@@ -30,8 +38,106 @@ jobs:
         run: |
           make clean package FINALPACKAGE=1
 
-      - name: Upload DEB
+      - name: Upload DEB artifact
         uses: actions/upload-artifact@v4
         with:
           name: FreeFall-Rootless-DEB
           path: packages/*.deb
+
+      - name: Generate Sileo repository
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          OUT="$RUNNER_TEMP/sileo-repo"
+          rm -rf "$OUT"
+          mkdir -p "$OUT/debs"
+
+          DEB="$(ls -t packages/*.deb | head -n 1)"
+          DEB_NAME="$(basename "$DEB")"
+          cp "$DEB" "$OUT/debs/$DEB_NAME"
+
+          SIZE="$(stat -f%z "$OUT/debs/$DEB_NAME")"
+          MD5="$(md5 -q "$OUT/debs/$DEB_NAME")"
+          SHA1="$(shasum -a 1 "$OUT/debs/$DEB_NAME" | awk '{print $1}')"
+          SHA256="$(shasum -a 256 "$OUT/debs/$DEB_NAME" | awk '{print $1}')"
+          SHA512="$(shasum -a 512 "$OUT/debs/$DEB_NAME" | awk '{print $1}')"
+
+          cat > "$OUT/Packages" <<EOF
+          Package: com.rashad.freefallrootless
+          Name: FreeFall Rootless
+          Version: 3.0.1
+          Architecture: iphoneos-arm64
+          Description: Rootless Dopamine/ElleKit port of FreeFall. Plays the Wilhelm Scream when free fall is detected.
+          Maintainer: Rashad
+          Author: Steven Rolfe; rootless port by Rashad
+          Section: Tweaks
+          Depends: firmware (>= 15.0), ellekit, preferenceloader
+          Conflicts: com.chewmieser.freefall
+          Replaces: com.chewmieser.freefall
+          Homepage: https://github.com/Rshad97/FreeFall-Rootless
+          Filename: ./debs/$DEB_NAME
+          Size: $SIZE
+          MD5sum: $MD5
+          SHA1: $SHA1
+          SHA256: $SHA256
+          SHA512: $SHA512
+
+          EOF
+
+          sed -i '' 's/^          //' "$OUT/Packages"
+
+          gzip -9c "$OUT/Packages" > "$OUT/Packages.gz"
+          bzip2 -9c "$OUT/Packages" > "$OUT/Packages.bz2"
+
+          cat > "$OUT/Release" <<'EOF'
+          Origin: Rashad Repo
+          Label: Rashad Repo
+          Suite: stable
+          Version: 1.0
+          Codename: ios
+          Architectures: iphoneos-arm64
+          Components: main
+          Description: Rashad's Sileo repository for rootless jailbreak tweaks
+          EOF
+          sed -i '' 's/^          //' "$OUT/Release"
+
+          cat > "$OUT/index.html" <<'EOF'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>Rashad Repo</title>
+            <style>
+              body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:760px;margin:50px auto;padding:0 20px;line-height:1.6}
+              code{background:#f2f2f7;padding:4px 7px;border-radius:6px;word-break:break-all}
+            </style>
+          </head>
+          <body>
+            <h1>Rashad Repo</h1>
+            <p>Sileo repository for rootless jailbreak tweaks.</p>
+            <h2>Available package</h2>
+            <p><strong>FreeFall Rootless 3.0.1</strong> — Dopamine/ElleKit rootless port with the Wilhelm Scream.</p>
+            <p>Source code: <a href="https://github.com/Rshad97/FreeFall-Rootless">GitHub</a></p>
+          </body>
+          </html>
+          EOF
+
+      - name: Publish Sileo repository to gh-pages
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/sileo-repo"
+          cd "$OUT"
+
+          git init
+          git checkout -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Publish Sileo repo for FreeFall Rootless 3.0.1"
+          git remote add origin "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+          git push --force origin gh-pages
