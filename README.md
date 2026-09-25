@@ -97,3 +97,8 @@ See `AUDIO_LICENSE.md` for source and licensing information.
 ## License
 
 GPL-3.0. See `LICENSE`.
+
+
+## Repository maintenance
+
+The `gh-pages` branch is the shared **Rashad Repo** Sileo source. Its publisher preserves both FreeFall Rootless and NFCCard packages.
