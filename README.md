@@ -102,3 +102,6 @@ GPL-3.0. See `LICENSE`.
 ## Repository maintenance
 
 The `gh-pages` branch is the shared **Rashad Repo** Sileo source. Its publisher preserves both FreeFall Rootless and NFCCard packages.
+
+
+NFCCard 0.3.6 has been synchronized into the shared source.
