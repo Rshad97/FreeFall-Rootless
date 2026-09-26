@@ -1,0 +1,36 @@
+Package: com.rashad.freefallrootless
+Name: FreeFall Rootless
+Version: 3.0.2
+Architecture: iphoneos-arm64
+Description: Rootless Dopamine/ElleKit port of FreeFall. Plays the Wilhelm Scream when free fall is detected.
+Maintainer: Rashad
+Author: Steven Rolfe; rootless port based on alexPNG's fork
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit, preferenceloader
+Conflicts: com.chewmieser.freefall
+Replaces: com.chewmieser.freefall
+Filename: ./debs/com.rashad.freefallrootless_3.0.2_iphoneos-arm64.deb
+Size: 128206
+MD5sum: 1114c88e8ebab42027471ca7a2ef95d1
+SHA1: 38cd12e8172c345a13adb50ff8b6e7d8923c0605
+SHA256: 9688bf58c63c2e436b0d28a27d33046aa46b939ce55030cadf8243ce4795c02d
+SHA512: 3d6cbf5c228c0c9e7fe4ee6b4cf214be4182725f2541765b72ee2713f215557dc6cc9ed37b3f6557929b03e142a8d3ffc38f90d9d3896028b4c680bfe7324cf2
+
+Package: com.rashad.nfccard
+Name: NFCCard
+Version: 0.3.8
+Architecture: iphoneos-arm64
+Description: NFC research and interoperability toolkit with Protocol Atlas, Card Genome, Capability Map, Privacy Radar and Wallet Route Advisor.
+Maintainer: Rashad
+Author: Rashad
+Section: Applications
+Depends: firmware (>= 16.0)
+Homepage: https://github.com/Rshad97/NFCCard
+Icon: https://raw.githubusercontent.com/Rshad97/NFCCard/main/design/AppIconSource.png
+Filename: ./debs/com.rashad.nfccard_0.3.8_iphoneos-arm64.deb
+Size: 381300
+MD5sum: b30b7dbf32396b0763d01ab6293921b1
+SHA1: b3da14546c330d27bf50f278cb66834f33ae85b7
+SHA256: fc2076684a1da48ff8bb0a1c6b2d2763d52f67ba506b8196aefd0ebccbb6599c
+SHA512: e9b3b796351ddba4322530616df84def1225b080187acd427938745e1876b2158de23b8b6be7a70c3b6bdf47663840eee83fad6b267eb3881ee7a4d078789b1a
+
