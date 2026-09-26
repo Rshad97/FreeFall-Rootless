@@ -19,7 +19,7 @@ jobs:
 
       - name: Install build tools
         run: |
-          brew install ldid dpkg ffmpeg
+          brew install ldid dpkg ffmpeg gnupg
 
       - name: Install Theos
         run: |
@@ -184,6 +184,47 @@ jobs:
 
           echo "Repository package index:"
           cat "$OUT/Packages"
+
+      - name: Sign Rashad Repo metadata
+        shell: bash
+        env:
+          REPO_GPG_PRIVATE_KEY: ${{ secrets.REPO_GPG_PRIVATE_KEY }}
+          REPO_GPG_PASSPHRASE: ${{ secrets.REPO_GPG_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/sileo-repo"
+
+          if [ -z "${REPO_GPG_PRIVATE_KEY:-}" ]; then
+            echo "::warning::REPO_GPG_PRIVATE_KEY is not configured. Publishing remains unsigned until the repository signing secret is added."
+            exit 0
+          fi
+
+          GNUPGHOME="$RUNNER_TEMP/repo-gnupg"
+          export GNUPGHOME
+          mkdir -p "$GNUPGHOME"
+          chmod 700 "$GNUPGHOME"
+
+          printf '%s' "$REPO_GPG_PRIVATE_KEY" | gpg --batch --import
+
+          FPR="$(gpg --batch --with-colons --list-secret-keys | awk -F: '$1 == "fpr" { print $10; exit }')"
+          test -n "$FPR"
+
+          SIGN_ARGS=(--batch --yes --pinentry-mode loopback --local-user "$FPR")
+          if [ -n "${REPO_GPG_PASSPHRASE:-}" ]; then
+            SIGN_ARGS+=(--passphrase "$REPO_GPG_PASSPHRASE")
+          fi
+
+          gpg "${SIGN_ARGS[@]}" --armor --detach-sign             --output "$OUT/Release.gpg" "$OUT/Release"
+
+          gpg "${SIGN_ARGS[@]}" --clearsign             --output "$OUT/InRelease" "$OUT/Release"
+
+          gpg --batch --armor --export "$FPR" > "$OUT/rashad-repo-signing-key.asc"
+          gpg --batch --export "$FPR" > "$OUT/rashad-repo-signing-key.gpg"
+
+          gpg --batch --verify "$OUT/Release.gpg" "$OUT/Release"
+          gpg --batch --verify "$OUT/InRelease"
+
+          echo "Published repository signing fingerprint: $FPR"
 
       - name: Publish Rashad Repo to gh-pages
         shell: bash
