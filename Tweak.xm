@@ -2,6 +2,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <math.h>
+#import <stdlib.h>
 #import <rootless.h>
 
 static CFStringRef const FFDomain = CFSTR("com.rashad.freefallrootless");
@@ -28,13 +29,17 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
 @interface FFRController : NSObject
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, strong) NSOperationQueue *motionQueue;
-@property (nonatomic, assign) SystemSoundID screamSound;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSNumber *> *sounds;
+@property (nonatomic, copy) NSString *selectedSound;
+@property (nonatomic, copy) NSString *lastSound;
+@property (nonatomic, assign) BOOL shuffle;
 @property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, assign) BOOL inFall;
 @property (nonatomic, assign) double fallSensitivity;
 @property (nonatomic, assign) double impactSensitivity;
 @property (nonatomic, assign) CFAbsoluteTime lastTrigger;
 - (void)reloadPreferences;
+- (void)playFallSound;
 - (void)startMonitoring;
 - (void)stopMonitoring;
 @end
@@ -45,9 +50,9 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
     self = [super init];
     if (self) {
         _motionManager = [[CMMotionManager alloc] init];
-        _motionQueue = [[NSOperationQueue alloc] init];
-        _motionQueue.maxConcurrentOperationCount = 1;
-        _screamSound = 0;
+        // Serialize motion callbacks, preference reloads and sound playback.
+        _motionQueue = [NSOperationQueue mainQueue];
+        _sounds = [NSMutableDictionary dictionary];
         _lastTrigger = 0;
         [self reloadPreferences];
     }
@@ -56,9 +61,8 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
 
 - (void)dealloc {
     [self stopMonitoring];
-    if (_screamSound != 0) {
-        AudioServicesDisposeSystemSoundID(_screamSound);
-        _screamSound = 0;
+    for (NSNumber *sound in _sounds.allValues) {
+        AudioServicesDisposeSystemSoundID(sound.unsignedIntValue);
     }
 }
 
@@ -69,26 +73,50 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
     self.fallSensitivity = FFDoubleForKey(CFSTR("fallingSensitivity"), 0.04);
     self.impactSensitivity = FFDoubleForKey(CFSTR("stoppingSensitivity"), 6.0);
 
-    if (self.screamSound != 0) {
-        AudioServicesDisposeSystemSoundID(self.screamSound);
-        self.screamSound = 0;
-    }
+    self.shuffle = FFBoolForKey(CFSTR("shuffle"), NO);
+    CFPropertyListRef selected = CFPreferencesCopyAppValue(CFSTR("selectedSound"), FFDomain);
+    self.selectedSound = (selected && CFGetTypeID(selected) == CFStringGetTypeID())
+        ? [(__bridge NSString *)selected copy] : @"FreeFallScream";
+    if (selected) CFRelease(selected);
 
-    NSString *soundPath = [ROOT_PATH_NS(@"/Library/FreeFallRootless") stringByAppendingPathComponent:@"FreeFallScream.wav"];
-    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:soundPath]) {
-        OSStatus soundStatus = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &_screamSound);
-        if (soundStatus != kAudioServicesNoError) {
-            NSLog(@"[FreeFallRootless] Failed to create SystemSoundID (%d) for %@", (int)soundStatus, soundPath);
-            _screamSound = 0;
+    // Keep IDs alive during live preference changes, including active playback.
+    // Only allow known bundled filenames, never a user-supplied path.
+    NSArray<NSString *> *names = @[@"FreeFallScream", @"RashadDrop", @"Laser", @"Phaser",
+                                  @"PowerDown", @"Zap", @"Alarm"];
+    for (NSString *name in names) {
+        if (self.sounds[name]) continue;
+        NSString *path = [ROOT_PATH_NS(@"/Library/FreeFallRootless")
+            stringByAppendingPathComponent:[name stringByAppendingPathExtension:@"wav"]];
+        SystemSoundID sound = 0;
+        OSStatus status = AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &sound);
+        if (status == kAudioServicesNoError && sound != 0) {
+            self.sounds[name] = @(sound);
+            NSLog(@"[FreeFallRootless] Loaded fall sound: %@", name);
         } else {
-            NSLog(@"[FreeFallRootless] Loaded fall sound: %@", soundPath);
+            NSLog(@"[FreeFallRootless] Sound unavailable: %@ (%d)", name, (int)status);
         }
     }
+    if (!self.sounds[self.selectedSound]) self.selectedSound = @"FreeFallScream";
 
     [self stopMonitoring];
     if (self.enabled) {
         [self startMonitoring];
+    }
+}
+
+- (void)playFallSound {
+    NSString *name = self.selectedSound;
+    if (self.shuffle) {
+        NSMutableArray<NSString *> *choices = [self.sounds.allKeys mutableCopy];
+        // Avoid consecutive repeats when more than one playable sound exists.
+        if (choices.count > 1 && self.lastSound) [choices removeObject:self.lastSound];
+        if (choices.count) name = choices[arc4random_uniform((uint32_t)choices.count)];
+    }
+    NSNumber *sound = self.sounds[name] ?: self.sounds[@"FreeFallScream"] ?: self.sounds.allValues.firstObject;
+    if (sound) {
+        self.lastSound = name;
+        AudioServicesPlaySystemSound(sound.unsignedIntValue);
+        NSLog(@"[FreeFallRootless] Playing %@ (Shuffle %@)", name, self.shuffle ? @"on" : @"off");
     }
 }
 
@@ -111,9 +139,7 @@ static double FFDoubleForKey(CFStringRef key, double fallback) {
         if (!selfRef.inFall && magnitude < selfRef.fallSensitivity && (now - selfRef.lastTrigger) > 1.0) {
             selfRef.inFall = YES;
             selfRef.lastTrigger = now;
-            if (selfRef.screamSound != 0) {
-                AudioServicesPlaySystemSound(selfRef.screamSound);
-            }
+            [selfRef playFallSound];
             return;
         }
 

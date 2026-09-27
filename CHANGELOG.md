@@ -1,3 +1,10 @@
+# 3.1.0 — 2026-09-27
+
+- Added six sounds: original Rashad Drop plus five CC0 Kenney effects.
+- Added Selected Sound and live Shuffle settings; Shuffle avoids consecutive repeats.
+- Retained Wilhelm Scream as the default and fallback sound.
+- Serialized audio and motion state on the main queue; cached sound IDs across preference changes.
+
 # Changelog
 
 ## 3.0.2
