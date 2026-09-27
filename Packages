@@ -1,24 +1,24 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.0.2
+Version: 3.1.0
 Architecture: iphoneos-arm64
-Description: Rootless Dopamine/ElleKit port of FreeFall. Plays the Wilhelm Scream when free fall is detected.
+Description: Rootless Dopamine/ElleKit port of FreeFall. Seven fall sounds, including an original custom sound, with optional Shuffle.
 Maintainer: Rashad
 Author: Steven Rolfe; rootless port based on alexPNG's fork
 Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
-Filename: ./debs/com.rashad.freefallrootless_3.0.2_iphoneos-arm64.deb
-Size: 128172
-MD5sum: 23dea755b32d342f19ca79180717c9a4
-SHA1: 3d39fab6cbfb235f31d011825a874fde8bef3557
-SHA256: 8c93085fd9945fdeed8e185e06f49ddbe136da7f6230a93fdbff6b14d447e2d6
-SHA512: aec60187ac45580071cd0ba7e86bcfc44abd8b585ba77e64135f4ecc2e23f01d841d4fa8cb35b2e119ec2ee8264f144e53ab7065899ef256783563d4bce004b0
+Filename: ./debs/com.rashad.freefallrootless_3.1.0_iphoneos-arm64.deb
+Size: 441586
+MD5sum: b55e9ce39331f19a3702a1d74024696f
+SHA1: a3f679dadd5ed6e7a437cbbd3111071904ff0c70
+SHA256: 64b6ae064e96c85e3830d43ba7245b799c911763402dcd4ed018ac3045e56167
+SHA512: 4583e3f3198b7f2e446b0de47288ca32e2d5e53aca233334c0a7add7fb99a2e635620ea6875dd4920f71c5b5d5bfda28edca9061629dbdab250f46c5e5f5f192
 
 Package: com.rashad.nfccard
 Name: NFCCard
-Version: 0.4.2
+Version: 0.5.0
 Architecture: iphoneos-arm64
 Description: NFC research and interoperability toolkit with Protocol Atlas, Card Genome, Capability Map, Privacy Radar and Wallet Route Advisor.
 Maintainer: Rashad
@@ -27,10 +27,10 @@ Section: Applications
 Depends: firmware (>= 16.0)
 Homepage: https://github.com/Rshad97/NFCCard
 Icon: https://raw.githubusercontent.com/Rshad97/NFCCard/main/design/AppIconSource.png
-Filename: ./debs/com.rashad.nfccard_0.4.2_iphoneos-arm64.deb
-Size: 417540
-MD5sum: 083e8d22290ec4f248c1c51f533724d8
-SHA1: 894d31f25354bf7ce6dd8b9b861d0b49c597008c
-SHA256: f57a5592adaec6bf877af48c2a9461479d882278610badc29d3e3cd33a4ae72c
-SHA512: f5fa5a177a3c0157ce19db0b9ffb8d42693c77a2c8cde8f3a8cbbcd6594fe41dc8370329bb65f292ad7c7e6a59003e8fc57e6ded04133bd5d7a1858bd979be62
+Filename: ./debs/com.rashad.nfccard_0.5.0_iphoneos-arm64.deb
+Size: 425256
+MD5sum: 70bce2f236a29fba6a0124031c56b0d2
+SHA1: d015617583945dc852c029eb342c14ec4b7afa9e
+SHA256: 68ca9fb7c5d500a15e79c01b11a8d1b5e1676631f53f524c6074596ba256faaf
+SHA512: 42a1cf6849bae92d28b92d795b99d15fbdf090d6dfaa82d1b3a6414b4848cdcf5111db9eb334cdb4b1135e9648e78a44fabd557666f0899019f8c23af8905a46
 
