@@ -21,3 +21,22 @@ For compatibility with iOS System Sound Services, the build converts the OGG to:
 - Under 30 seconds
 
 The GPL-3.0 license applies to the FreeFall Rootless source code. The Wilhelm audio retains its CC0 status.
+
+## Added in 3.1.0
+
+RashadDrop.wav is an original synthesized effect created for this project, licensed under the project GPL-3.0 license. Reproduce it with `python3 scripts/generate-rashad-drop.py`. No third-party samples.
+
+The following five effects are by Kenney (https://kenney.nl), dedicated to CC0:
+Source: https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc
+Download: https://opengameart.org/sites/default/files/Digital_SFX_Set.zip
+Archive SHA-256: 022f0f4b73da55989567fe2b373c8af89d74f5d015257e293cab497ca606d063
+
+Converted to mono, 48 kHz, 16-bit PCM WAV with FFmpeg.
+
+| Bundled file | Source file |
+|---|---|
+| Laser.wav | laser1.mp3 |
+| Phaser.wav | phaserDown1.mp3 |
+| PowerDown.wav | highDown.mp3 |
+| Zap.wav | zapThreeToneDown.mp3 |
+| Alarm.wav | threeTone1.mp3 |

@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.0.2**
+- Version: **3.1.0**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -19,6 +19,9 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 - Adjustable impact/reset threshold
 - CoreMotion callback-based monitoring instead of a polling timer
 - Cooldown/reset logic to avoid repeated triggers during one fall
+- Six additional bundled sounds: Rashad Drop (original), Laser, Phaser, Power Down, Zap, Digital Alarm
+- Selected Sound picker and Shuffle switch in Settings → FreeFall Rootless → Sounds
+- Shuffle selects a playable sound on every fall and avoids consecutive repeats
 - Replaceable WAV sound at `/var/jb/Library/FreeFallRootless/FreeFallScream.wav`
 
 ## Project layout
