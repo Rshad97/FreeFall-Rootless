@@ -49,6 +49,20 @@ jobs:
       - name: Validate bundled sounds
         run: python3 scripts/validate-sounds.py
 
+      - name: Test feature logic and production audio importer
+        run: |
+          clang -std=c11 -Wall -Wextra -Werror tests/logic.c -o /tmp/ff-logic
+          /tmp/ff-logic
+          clang -fobjc-arc -framework Foundation tests/selection.m -o /tmp/ff-selection
+          /tmp/ff-selection
+          clang -fobjc-arc -fblocks -framework Foundation -framework AVFoundation tests/import.m freefallprefs/FFAudioImport.m -o /tmp/ff-import
+          /tmp/ff-import layout/Library/FreeFallRootless/RashadDrop.wav
+          ffmpeg -v error -y -i layout/Library/FreeFallRootless/RashadDrop.wav -ar 44100 -ac 2 /tmp/ff-stereo.wav
+          /tmp/ff-import /tmp/ff-stereo.wav
+          ffmpeg -v error -y -i /tmp/ff-stereo.wav /tmp/ff-compressed.m4a
+          /tmp/ff-import /tmp/ff-compressed.m4a
+          python3 scripts/validate-settings.py
+
       - name: Build FreeFall package
         run: |
           make clean package FINALPACKAGE=1

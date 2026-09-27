@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.1.0**
+- Version: **3.2.0**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -13,6 +13,23 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 - Tested successfully on an **A12 iPhone XS Max running Dopamine 3 rootless**
 
 ## Features
+
+### New in 3.2.0
+
+All controls are under **Settings → FreeFall Rootless**:
+
+1. **Preview Selected Sound / Preview Shuffle**: hear sounds without dropping the device.
+2. **Shuffle Pool**: include only sounds you want. An empty pool is silent; a single sound can repeat.
+3. **Import / Trim Custom Sound**: choose a Files audio document, preview a section and save 0.2–10 seconds. One custom slot, converted locally to mono 48 kHz 16-bit WAV. Failed imports keep the old file. DRM and undecodable formats are rejected.
+4. **Play on Impact**: opt-in separate sound following a detected fall and threshold crossing. Stops the falling sound; timeouts do not trigger it.
+5. **Pocket Mode**: experimental, off by default. Suppresses triggers while proximity is covered when available and requires 60 ms low acceleration. May miss short falls. iOS proximity monitoring may blank the display: disable this mode if it interferes with normal use or calls.
+6. **Live Calibration**: live acceleration in g and manual threshold sliders. Save explicitly. Not an automatic calibration guarantee. Never drop your phone to test.
+7. **Event Logging / History**: opt-in, local-only; 200 detailed events and 90 days of daily fall totals. Counts cover only detected events while logging is enabled. No network transmission.
+8. **Quiet Hours**: local-time start/end hours including overnight; equal hours mean all-day silence. Logging continues if enabled. Intentional previews still play.
+
+Custom audio and local history live under `/var/mobile/Library/Application Support/FreeFallRootless/`, outside the package. Existing thresholds and sound selection are preserved. Additional detection/logging/quiet options default off. Hardware detection is best-effort, not a damage-prevention feature.
+
+Audio playback uses AVAudioPlayer without changing SpringBoard's shared audio session or forcing volume. Device sound settings and other audio sessions may affect audibility. Device testing is still necessary; CI is not a SpringBoard simulator.
 
 - Enable/disable switch
 - Adjustable free-fall sensitivity

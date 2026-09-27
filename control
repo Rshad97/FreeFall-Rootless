@@ -1,6 +1,6 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.1.0
+Version: 3.2.0
 Architecture: iphoneos-arm64
 Description: Rootless Dopamine/ElleKit port of FreeFall. Seven fall sounds, including an original custom sound, with optional Shuffle.
 Maintainer: Rashad
