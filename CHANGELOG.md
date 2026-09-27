@@ -1,3 +1,16 @@
+# 3.2.0 — 2026-09-28
+
+- Added selected, Shuffle and impact sound previews in Settings.
+- Added per-sound Shuffle inclusion controls; empty pool is silent.
+- Added Files audio import with start/duration trim, preview, mono PCM conversion and atomic replacement of one custom slot.
+- Added opt-in impact sound with a separate picker; timeout never counts as impact.
+- Added experimental opt-in proximity/pocket filtering and 60 ms low-g confirmation.
+- Added live accelerometer calibration with manual threshold saving.
+- Added opt-in on-device event history (200 entries) and separate daily totals (90 days).
+- Added quiet hours with overnight/all-day handling in the device's local timezone.
+- Added native logic, selection and production importer tests to CI.
+- Runtime/hardware behavior still requires validation on a supported jailbroken device.
+
 # 3.1.0 — 2026-09-27
 
 - Added six sounds: original Rashad Drop plus five CC0 Kenney effects.

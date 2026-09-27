@@ -8,10 +8,12 @@ import wave
 root = Path(__file__).resolve().parents[1]
 prefs = plistlib.loads((root / 'freefallprefs/Resources/Root.plist').read_bytes())
 picker = next(i for i in prefs['items'] if i.get('key') == 'selectedSound')
-assert len(picker['validValues']) == len(picker['validTitles']) == 7
+assert len(picker['validValues']) == len(picker['validTitles']) == 8
 assert picker['default'] == 'FreeFallScream'
 hashes = set()
 for name in picker['validValues']:
+    if name == 'Custom':
+        continue  # User-imported at runtime, never a packaged placeholder.
     path = root / 'layout/Library/FreeFallRootless' / (name + '.wav')
     with wave.open(str(path), 'rb') as audio:
         assert (audio.getnchannels(), audio.getsampwidth(), audio.getframerate()) == (1, 2, 48000), name

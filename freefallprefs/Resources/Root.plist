@@ -122,16 +122,452 @@
 				<string>PowerDown</string>
 				<string>Zap</string>
 				<string>Alarm</string>
+				<string>Custom</string>
 			</array>
 			<key>validTitles</key>
 			<array>
-				<string>Wilhelm Scream (Original)</string>
-				<string>Rashad Drop (Custom)</string>
+				<string>Wilhelm Scream</string>
+				<string>Rashad Drop</string>
 				<string>Laser</string>
 				<string>Phaser</string>
 				<string>Power Down</string>
 				<string>Zap</string>
 				<string>Digital Alarm</string>
+				<string>Custom Sound</string>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Preview Selected Sound</string>
+			<key>action</key>
+			<string>previewSound</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Preview Shuffle</string>
+			<key>action</key>
+			<string>previewShuffle</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Import / Trim Custom Sound</string>
+			<key>action</key>
+			<string>importSound</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Shuffle Pool</string>
+			<key>footerText</key>
+			<string>Choose sounds used by Shuffle. Empty pool = silence. Missing custom audio is skipped. With one sound selected, repeats are allowed.</string>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Wilhelm Scream</string>
+			<key>key</key>
+			<string>include_FreeFallScream</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Rashad Drop</string>
+			<key>key</key>
+			<string>include_RashadDrop</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Laser</string>
+			<key>key</key>
+			<string>include_Laser</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Phaser</string>
+			<key>key</key>
+			<string>include_Phaser</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Power Down</string>
+			<key>key</key>
+			<string>include_PowerDown</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Zap</string>
+			<key>key</key>
+			<string>include_Zap</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Digital Alarm</string>
+			<key>key</key>
+			<string>include_Alarm</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Custom Sound</string>
+			<key>key</key>
+			<string>include_Custom</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Impact Sound</string>
+			<key>footerText</key>
+			<string>Optional second sound after a detected fall. It replaces the falling sound only when a real threshold crossing is detected; a timeout does not play it. Detection is experimental.</string>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Play on Impact</string>
+			<key>key</key>
+			<string>impactEnabled</string>
+			<key>default</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>label</key>
+			<string>Impact Sound</string>
+			<key>key</key>
+			<string>impactSound</string>
+			<key>default</key>
+			<string>Zap</string>
+			<key>validValues</key>
+			<array>
+				<string>FreeFallScream</string>
+				<string>RashadDrop</string>
+				<string>Laser</string>
+				<string>Phaser</string>
+				<string>PowerDown</string>
+				<string>Zap</string>
+				<string>Alarm</string>
+				<string>Custom</string>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>Wilhelm Scream</string>
+				<string>Rashad Drop</string>
+				<string>Laser</string>
+				<string>Phaser</string>
+				<string>Power Down</string>
+				<string>Zap</string>
+				<string>Digital Alarm</string>
+				<string>Custom Sound</string>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Preview Impact Sound</string>
+			<key>action</key>
+			<string>previewImpact</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Pocket Filter — Experimental</string>
+			<key>footerText</key>
+			<string>Uses proximity when available and requires 60 ms of low acceleration. May miss short falls. iOS may blank the screen when the proximity sensor is covered. Turn this off if it interferes with screen or calls.</string>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Pocket Mode</string>
+			<key>key</key>
+			<string>pocketMode</string>
+			<key>default</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Live Calibration</string>
+			<key>action</key>
+			<string>showCalibration</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Local History</string>
+			<key>footerText</key>
+			<string>Off by default. Records suspected falls and impacts locally; no uploads. Retains the latest 200 events.</string>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Event Logging</string>
+			<key>key</key>
+			<string>eventLogging</string>
+			<key>default</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>History / Daily Count</string>
+			<key>action</key>
+			<string>showHistory</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Quiet Hours</string>
+			<key>footerText</key>
+			<string>Uses local device time. Start inclusive, end exclusive; supports overnight. Equal hours silence all day. Detection and enabled logging continue; preview buttons still play intentionally.</string>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Enable Quiet Hours</string>
+			<key>key</key>
+			<string>quietEnabled</string>
+			<key>default</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>label</key>
+			<string>Start Hour</string>
+			<key>key</key>
+			<string>quietStart</string>
+			<key>default</key>
+			<integer>22</integer>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+				<integer>8</integer>
+				<integer>9</integer>
+				<integer>10</integer>
+				<integer>11</integer>
+				<integer>12</integer>
+				<integer>13</integer>
+				<integer>14</integer>
+				<integer>15</integer>
+				<integer>16</integer>
+				<integer>17</integer>
+				<integer>18</integer>
+				<integer>19</integer>
+				<integer>20</integer>
+				<integer>21</integer>
+				<integer>22</integer>
+				<integer>23</integer>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>00:00</string>
+				<string>01:00</string>
+				<string>02:00</string>
+				<string>03:00</string>
+				<string>04:00</string>
+				<string>05:00</string>
+				<string>06:00</string>
+				<string>07:00</string>
+				<string>08:00</string>
+				<string>09:00</string>
+				<string>10:00</string>
+				<string>11:00</string>
+				<string>12:00</string>
+				<string>13:00</string>
+				<string>14:00</string>
+				<string>15:00</string>
+				<string>16:00</string>
+				<string>17:00</string>
+				<string>18:00</string>
+				<string>19:00</string>
+				<string>20:00</string>
+				<string>21:00</string>
+				<string>22:00</string>
+				<string>23:00</string>
+			</array>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>label</key>
+			<string>End Hour</string>
+			<key>key</key>
+			<string>quietEnd</string>
+			<key>default</key>
+			<integer>7</integer>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+				<integer>8</integer>
+				<integer>9</integer>
+				<integer>10</integer>
+				<integer>11</integer>
+				<integer>12</integer>
+				<integer>13</integer>
+				<integer>14</integer>
+				<integer>15</integer>
+				<integer>16</integer>
+				<integer>17</integer>
+				<integer>18</integer>
+				<integer>19</integer>
+				<integer>20</integer>
+				<integer>21</integer>
+				<integer>22</integer>
+				<integer>23</integer>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>00:00</string>
+				<string>01:00</string>
+				<string>02:00</string>
+				<string>03:00</string>
+				<string>04:00</string>
+				<string>05:00</string>
+				<string>06:00</string>
+				<string>07:00</string>
+				<string>08:00</string>
+				<string>09:00</string>
+				<string>10:00</string>
+				<string>11:00</string>
+				<string>12:00</string>
+				<string>13:00</string>
+				<string>14:00</string>
+				<string>15:00</string>
+				<string>16:00</string>
+				<string>17:00</string>
+				<string>18:00</string>
+				<string>19:00</string>
+				<string>20:00</string>
+				<string>21:00</string>
+				<string>22:00</string>
+				<string>23:00</string>
 			</array>
 		</dict>
 	</array>

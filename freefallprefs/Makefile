@@ -1,8 +1,8 @@
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = FreeFallRootlessPrefs
-FreeFallRootlessPrefs_FILES = FFRRootListController.m
-FreeFallRootlessPrefs_FRAMEWORKS = UIKit
+FreeFallRootlessPrefs_FILES = FFRRootListController.m FFScreens.m FFAudioImport.m
+FreeFallRootlessPrefs_FRAMEWORKS = UIKit AVFoundation CoreMotion UniformTypeIdentifiers
 FreeFallRootlessPrefs_INSTALL_PATH = /Library/PreferenceBundles
 FreeFallRootlessPrefs_CFLAGS = -fobjc-arc
 
