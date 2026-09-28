@@ -6,12 +6,12 @@ Codename: ios
 Architectures: iphoneos-arm64
 Components: main
 Description: Rashad's Sileo repository for rootless jailbreak packages
-Date: Mon, 28 Sep 2026 18:16:37 +0000
+Date: Mon, 28 Sep 2026 18:59:18 +0000
 MD5Sum:
- 70e1db9959bd2c5101eafaa5953a3f01             2601 Packages
- d63072903ffee91ebf5df271f27c0a5f             1301 Packages.gz
- 00d84461f2884511e3fa7c189162f63f             1409 Packages.bz2
+ 7a779aadaf53e48fb12e5fb6c66b17a6             2601 Packages
+ 008b1773f6922b59b962a14e0e943193             1303 Packages.gz
+ 730f2fc01b1f8d0e9a6aca063df13597             1406 Packages.bz2
 SHA256:
- e4164937f975d2d57216f8b515a7ca12ab45b2cefc10a7569fde4b4eb5a08002             2601 Packages
- 471a358afb7267921f9a24569877932af397b393f9bf11a54bc535561b36a5e7             1301 Packages.gz
- ae8bf1f9f01d75c917f52842bdf31321ec1e45561b928d37b7e16557ec89c04c             1409 Packages.bz2
+ d660afc0a41eb0e2a98c765d4bc9002f0a554d675d1330a387c89a2b0ec14824             2601 Packages
+ 8054e2d9bbedf33cf363bf4beae33b344a9ef659bd4d7dc09b115e4c8b31d813             1303 Packages.gz
+ bafb02ddbd891ca5ed41f22c11ceaceada0b79235e0c093a410f91a4a8e129d0             1406 Packages.bz2
