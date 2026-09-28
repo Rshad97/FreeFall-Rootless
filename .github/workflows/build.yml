@@ -88,7 +88,7 @@ jobs:
           test "$(awk '/^Version:/{print $2}' control)" = "1.0.0"
           make clean package FINALPACKAGE=1
 
-          ADSHIELD_DEB="$(ls -t packages/*.deb | head -n 1)"
+          ADSHIELD_DEB="$(pwd)/$(ls -t packages/*.deb | head -n 1)"
           test -s "$ADSHIELD_DEB"
           echo "ADSHIELD_DEB=$ADSHIELD_DEB" >> "$GITHUB_ENV"
           dpkg-deb -I "$ADSHIELD_DEB"
