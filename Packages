@@ -10,11 +10,11 @@ Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
 Filename: ./debs/com.rashad.freefallrootless_3.2.1_iphoneos-arm64.deb
-Size: 466856
-MD5sum: bea19611be3a01d1bed23b69a61d6dad
-SHA1: 66e166b53c6f938221bc6ab2fa87f8e479bfcb27
-SHA256: 014df7aeaf6998e9acb29d480e6e61f053554739f88f5ea9f9532017900453c6
-SHA512: e9818c6ae88498b1eb60821243635b10d5916d9925da685c3a55e289843c82ee9bb9727cec5339cc077693e2f505e471606ceb816fd5fd2e8d2fcac88e8b0e6c
+Size: 466378
+MD5sum: 387446250fbb6d2cf4961d78cef0e9d2
+SHA1: bc62115303b776edbe5fc184c80bbbe0cdb5615a
+SHA256: cd9c5e0c86e0ea6a57feb977cbf4acfbbfb4ed3fbe247f1e92ad8120c36eac89
+SHA512: ad93d5b0efa0da538c5f88217451121123e97b07358141a68249e326050d2be95e715c388f40be65eeb8346fbde823a03399bf584a5fc6c42c183ce069c159cc
 
 Package: com.rashad.nfccard
 Name: NFCCard
@@ -33,4 +33,23 @@ MD5sum: 70bce2f236a29fba6a0124031c56b0d2
 SHA1: d015617583945dc852c029eb342c14ec4b7afa9e
 SHA256: 68ca9fb7c5d500a15e79c01b11a8d1b5e1676631f53f524c6074596ba256faaf
 SHA512: 42a1cf6849bae92d28b92d795b99d15fbdf090d6dfaa82d1b3a6414b4848cdcf5111db9eb334cdb4b1135e9648e78a44fabd557666f0899019f8c23af8905a46
+
+Package: com.rshad.adshieldrootless
+Name: AdShield-Rootless
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Rootless system-wide ad and tracker filtering prototype for iOS 15+.
+Maintainer: Rashad
+Author: Rashad
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit, preferenceloader
+Conflicts: com.rshad.adshield
+Replaces: com.rshad.adshield
+Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
+Filename: ./debs/com.rshad.adshieldrootless_1.0.0_iphoneos-arm64.deb
+Size: 64588
+MD5sum: b17f445df121f2d06822a6860d4c8874
+SHA1: ff63af47d8817f6f7bb1160b9263fe521957720c
+SHA256: 2972c6e2db13036bd0ec6d2cb4a3b97f91466cf96d654ebd50736e2c128f8269
+SHA512: 76648d869d66ef78d738f44f2e3809c3819730dfa746f2cd0ae699fac4c950e9da2b66f29579e61a4e5053f694914a5657d991a1b743742c6d32dbdbf89baa33
 
