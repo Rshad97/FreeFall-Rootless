@@ -74,6 +74,25 @@ jobs:
           name: FreeFall-Rootless-DEB
           path: packages/*.deb
 
+      - name: Build AdShield package for Rashad Repo
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ADSHIELD_SRC="$RUNNER_TEMP/Rshad97-profile"
+          rm -rf "$ADSHIELD_SRC"
+          git clone --depth 1 https://github.com/Rshad97/Rshad97.git "$ADSHIELD_SRC"
+          cd "$ADSHIELD_SRC/AdShield-Rootless"
+
+          test "$(awk '/^Package:/{print $2}' control)" = "com.rshad.adshieldrootless"
+          test "$(awk '/^Version:/{print $2}' control)" = "1.0.0"
+          make clean package FINALPACKAGE=1
+
+          ADSHIELD_DEB="$(ls -t packages/*.deb | head -n 1)"
+          test -s "$ADSHIELD_DEB"
+          echo "ADSHIELD_DEB=$ADSHIELD_DEB" >> "$GITHUB_ENV"
+          dpkg-deb -I "$ADSHIELD_DEB"
+
       - name: Assemble Rashad Repo
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
@@ -86,6 +105,10 @@ jobs:
 
           FREEFALL_DEB="$(ls -t packages/*.deb | head -n 1)"
           cp "$FREEFALL_DEB" "$OUT/debs/$(basename "$FREEFALL_DEB")"
+
+          test -n "${ADSHIELD_DEB:-}"
+          test -s "$ADSHIELD_DEB"
+          cp "$ADSHIELD_DEB" "$OUT/debs/$(basename "$ADSHIELD_DEB")"
 
           echo "Fetching latest NFCCard package from its distribution branch..."
           curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NFCCard/gh-pages/Packages"             -o "$RUNNER_TEMP/NFCCard-Packages"
