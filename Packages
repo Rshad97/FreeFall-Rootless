@@ -36,8 +36,6 @@ SHA512: 42a1cf6849bae92d28b92d795b99d15fbdf090d6dfaa82d1b3a6414b4848cdcf5111db9e
 
 Package: com.rshad.adshieldrootless
 Name: AdShield-Rootless
-Version: 1.0.0
-Architecture: iphoneos-arm64
 Description: Rootless system-wide ad and tracker filtering prototype for iOS 15+.
 Maintainer: Rashad
 Author: Rashad
@@ -45,12 +43,16 @@ Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.rshad.adshield
 Replaces: com.rshad.adshield
+Priority: optional
 Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
 Icon: https://rshad97.github.io/FreeFall-Rootless/assets/adshield.png
-Filename: ./debs/com.rshad.adshieldrootless_1.0.0_iphoneos-arm64.deb
-Size: 64606
-MD5sum: 9e6f1025d5af846e470032d88bbff9b7
-SHA1: c4ee595fb0b1703971a482a394194a149697830b
-SHA256: f26a274b2d7a4c2d5447e5158cb9b608ab5a49623a0968a8f20ef68bfb17cc89
-SHA512: 3137dba388682884d0b595b27d5bb6fb93777ebd52a727194c3fc4ca0a7a718027e7943c17bbdede70696ddb4e790c5348625014f4e4d5fbea5db421b4e3cec1
+Architecture: iphoneos-arm64
+Version: 1.1.0
+Installed-Size: 596
+Filename: ./debs/com.rshad.adshieldrootless_1.1.0_iphoneos-arm64.deb
+Size: 84170
+MD5sum: 30c25b2622cd124ffa56117c9f7a2704
+SHA1: b55b264e36cb30ec415b4267a60a31ba1eaaf46c
+SHA256: fa5ecfc9e0c573f8beb536f0405e0c7d5bf0e6d5fe51a04a0f4c4be3bd5b7ebd
+SHA512: d6ab25db3ee393f957070c41ab7d421ef4cad39e4ce467f2bcbb5bdc5ee8e545918c1ce3b51a2f6931f4ba21d566ad2f5cf0e2e4b0598138822766e695dfadbe
 
