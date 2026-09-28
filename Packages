@@ -10,11 +10,11 @@ Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
 Filename: ./debs/com.rashad.freefallrootless_3.2.1_iphoneos-arm64.deb
-Size: 466994
-MD5sum: da305456a1158ad18cc79d4e3bd1808d
-SHA1: 2661a3ae54f6383e4f3791149113964b07502ba0
-SHA256: 43425b1f2d01c7d1d0bdf28791813e1d6d671158d38c70a3189415dc505da7fe
-SHA512: b5041f7df58b26f882de619e163c8e14587d70c9d6a88cc3caf5131fbdb4a0c12140161d25093defd8951992435577b407841c324a77391b4fb621e371a1ac42
+Size: 466856
+MD5sum: bea19611be3a01d1bed23b69a61d6dad
+SHA1: 66e166b53c6f938221bc6ab2fa87f8e479bfcb27
+SHA256: 014df7aeaf6998e9acb29d480e6e61f053554739f88f5ea9f9532017900453c6
+SHA512: e9818c6ae88498b1eb60821243635b10d5916d9925da685c3a55e289843c82ee9bb9727cec5339cc077693e2f505e471606ceb816fd5fd2e8d2fcac88e8b0e6c
 
 Package: com.rashad.nfccard
 Name: NFCCard
