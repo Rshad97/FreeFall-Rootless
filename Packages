@@ -1,20 +1,20 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.2.0
+Version: 3.2.1
 Architecture: iphoneos-arm64
-Description: Rootless Dopamine/ElleKit port of FreeFall. Seven fall sounds, including an original custom sound, with optional Shuffle.
+Description: Rootless Dopamine/ElleKit FreeFall with configurable sounds, Shuffle, custom audio, impact sound, calibration, history, pocket filter and quiet hours.
 Maintainer: Rashad
 Author: Steven Rolfe; rootless port based on alexPNG's fork
 Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
-Filename: ./debs/com.rashad.freefallrootless_3.2.0_iphoneos-arm64.deb
-Size: 466760
-MD5sum: d503efb3bfb3a9e65cc0d5cc27214ca1
-SHA1: f7907cd8513733210bc82b8cbbd446a9e8a7ee1b
-SHA256: c991f070c94cbb4e1d1e6e893cef14532148673094b52aaaf77564ce2242fff3
-SHA512: abbb1e13419b94f5a8c6e116f5d26870832f7107fd7c8880713bc53c9bdf7002ff3a80a5d1e19173c99e252df4328ec7649503614aff84d5d7165504c895e2c6
+Filename: ./debs/com.rashad.freefallrootless_3.2.1_iphoneos-arm64.deb
+Size: 466994
+MD5sum: da305456a1158ad18cc79d4e3bd1808d
+SHA1: 2661a3ae54f6383e4f3791149113964b07502ba0
+SHA256: 43425b1f2d01c7d1d0bdf28791813e1d6d671158d38c70a3189415dc505da7fe
+SHA512: b5041f7df58b26f882de619e163c8e14587d70c9d6a88cc3caf5131fbdb4a0c12140161d25093defd8951992435577b407841c324a77391b4fb621e371a1ac42
 
 Package: com.rashad.nfccard
 Name: NFCCard
