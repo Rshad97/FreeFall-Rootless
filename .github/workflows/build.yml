@@ -101,7 +101,7 @@ jobs:
 
           OUT="$RUNNER_TEMP/sileo-repo"
           rm -rf "$OUT"
-          mkdir -p "$OUT/debs"
+          mkdir -p "$OUT/debs" "$OUT/assets"
 
           FREEFALL_DEB="$(ls -t packages/*.deb | head -n 1)"
           cp "$FREEFALL_DEB" "$OUT/debs/$(basename "$FREEFALL_DEB")"
@@ -109,6 +109,10 @@ jobs:
           test -n "${ADSHIELD_DEB:-}"
           test -s "$ADSHIELD_DEB"
           cp "$ADSHIELD_DEB" "$OUT/debs/$(basename "$ADSHIELD_DEB")"
+
+          ADSHIELD_ICON="$RUNNER_TEMP/Rshad97-profile/AdShield-Rootless/app/Resources/Icon-60@2x.png"
+          test -s "$ADSHIELD_ICON"
+          cp "$ADSHIELD_ICON" "$OUT/assets/adshield.png"
 
           echo "Fetching latest NFCCard package from its distribution branch..."
           curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NFCCard/gh-pages/Packages"             -o "$RUNNER_TEMP/NFCCard-Packages"
