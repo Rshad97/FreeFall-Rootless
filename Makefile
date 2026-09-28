@@ -7,7 +7,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = FreeFallRootless
 FreeFallRootless_FILES = Tweak.xm
-FreeFallRootless_FRAMEWORKS = Foundation CoreMotion AudioToolbox AVFoundation UIKit
+FreeFallRootless_FRAMEWORKS = Foundation CoreMotion AudioToolbox UIKit
 FreeFallRootless_CFLAGS = -fobjc-arc -fblocks
 
 include $(THEOS_MAKE_PATH)/tweak.mk

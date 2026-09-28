@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.2.0**
+- Version: **3.2.1**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -29,7 +29,7 @@ All controls are under **Settings → FreeFall Rootless**:
 
 Custom audio and local history live under `/var/mobile/Library/Application Support/FreeFallRootless/`, outside the package. Existing thresholds and sound selection are preserved. Additional detection/logging/quiet options default off. Hardware detection is best-effort, not a damage-prevention feature.
 
-Audio playback uses AVAudioPlayer without changing SpringBoard's shared audio session or forcing volume. Device sound settings and other audio sessions may affect audibility. Device testing is still necessary; CI is not a SpringBoard simulator.
+SpringBoard fall/impact playback uses System Sound Services for short PCM WAV effects, matching the stable pre-3.2 runtime path and avoiding dependence on SpringBoard's shared AVAudioSession. AVAudioPlayer is used only in the Settings bundle for previews and custom-audio editing. Device sound settings may still affect audibility. Device testing is still necessary; CI is not a SpringBoard simulator.
 
 - Enable/disable switch
 - Adjustable free-fall sensitivity

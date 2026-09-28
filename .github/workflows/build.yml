@@ -62,6 +62,7 @@ jobs:
           ffmpeg -v error -y -i /tmp/ff-stereo.wav /tmp/ff-compressed.m4a
           /tmp/ff-import /tmp/ff-compressed.m4a
           python3 scripts/validate-settings.py
+          python3 scripts/validate-runtime-audio.py
 
       - name: Build FreeFall package
         run: |
