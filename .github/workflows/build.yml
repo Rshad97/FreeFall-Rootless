@@ -127,6 +127,15 @@ jobs:
 
           curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NFCCard/gh-pages/$NFC_RELATIVE"             -o "$OUT/debs/$NFC_NAME"
 
+          echo "Fetching latest NotifyGlow package from its distribution branch..."
+          curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NotifyGlow-Rootless/gh-pages/Packages"             -o "$RUNNER_TEMP/NotifyGlow-Packages"
+
+          NOTIFYGLOW_FILENAME="$(awk '/^Package: com.rshad.notifyglow$/{found=1} found && /^Filename:/{print $2; exit}' "$RUNNER_TEMP/NotifyGlow-Packages")"
+          test -n "$NOTIFYGLOW_FILENAME"
+          NOTIFYGLOW_RELATIVE="${NOTIFYGLOW_FILENAME#./}"
+          NOTIFYGLOW_NAME="$(basename "$NOTIFYGLOW_RELATIVE")"
+          curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NotifyGlow-Rootless/gh-pages/$NOTIFYGLOW_RELATIVE"             -o "$OUT/debs/$NOTIFYGLOW_NAME"
+
           : > "$OUT/Packages"
 
           for DEB in "$OUT"/debs/*.deb; do
