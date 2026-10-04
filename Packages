@@ -1,6 +1,6 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.2.1
+Version: 3.2.2
 Architecture: iphoneos-arm64
 Description: Rootless Dopamine/ElleKit FreeFall with configurable sounds, Shuffle, custom audio, impact sound, calibration, history, pocket filter and quiet hours.
 Maintainer: Rashad
@@ -9,12 +9,12 @@ Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
-Filename: ./debs/com.rashad.freefallrootless_3.2.1_iphoneos-arm64.deb
-Size: 466992
-MD5sum: d3978780842f161c141bbfe110588301
-SHA1: 2a2d01245f62b6ad2d3e79de997bcda0374b9e43
-SHA256: bada004727742fc1c834d916fb76ad08dcd838896a0324beb56a5c47f66114be
-SHA512: ff6c0f09030856ac58623873db05248f518e65ba5cdc3c70d7ba03c7828c80dd74becb5cfcbd8c860ae07751ec3bc81d3b50d107d1669f31b5ae66d49a88852c
+Filename: ./debs/com.rashad.freefallrootless_3.2.2_iphoneos-arm64.deb
+Size: 550376
+MD5sum: cad4b2039bb60dac5c9984708a58dd0b
+SHA1: 59580d176945cdf0b0daf0e657540de81db22208
+SHA256: ec2b57b961d9e77b4c0e240fc917da50574175a9f1ea4ba5f41e37f48d22338e
+SHA512: 2b89921dd54ebbd0234d4151fe13074f410187d11d232120f5023b81d85bcaf80500badfd47c881ffab057c0bd26ae560c6a64d7071dc43a2f7f4d6a4a111317
 
 Package: com.rashad.nfccard
 Name: NFCCard
@@ -36,6 +36,8 @@ SHA512: 42a1cf6849bae92d28b92d795b99d15fbdf090d6dfaa82d1b3a6414b4848cdcf5111db9e
 
 Package: com.rshad.adshieldrootless
 Name: AdShield-Rootless
+Version: 1.1.1
+Architecture: iphoneos-arm64
 Description: Rootless system-wide ad and tracker filtering prototype for iOS 15+.
 Maintainer: Rashad
 Author: Rashad
@@ -43,16 +45,12 @@ Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.rshad.adshield
 Replaces: com.rshad.adshield
-Priority: optional
 Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
 Icon: https://rshad97.github.io/FreeFall-Rootless/assets/adshield.png
-Architecture: iphoneos-arm64
-Version: 1.1.1
-Installed-Size: 596
 Filename: ./debs/com.rshad.adshieldrootless_1.1.1_iphoneos-arm64.deb
-Size: 85566
-MD5sum: 7ec3a4e1db43999e853e702bb3c51564
-SHA1: aad95dacb4b654aaf1f1cfd5939f554894461cf3
-SHA256: 10bddb8b3bba88e6791209f76e32c6b0b7364275dc6fddcadc72928a86f0577b
-SHA512: ffb7b4dc6b3a01088150568a554391c64e302a858918fa6766f17f23f9e6f02f4417b5d0f1947927c12e30602b405df1c68eef20a6e2b9b66a5e2c5e94b1741f
+Size: 85250
+MD5sum: 411fd8145c7281f0b99356a3a4f19360
+SHA1: 3c5b9c91ee7f278ec1fa45ffcde5d2929fb92747
+SHA256: c14b9ea1ac42c8d2b9abfa93ac1e05df5cecf87dfbab284ecd4a204955393d59
+SHA512: f9e26ccf90ef32f9f9dae2906af1f4ebdf09f4bb275041cb0abbde2d45edb2b748f69136f92f3213672baaf49d6a8af9546f9d39dba5e7130edc94a080c1c47c
 
