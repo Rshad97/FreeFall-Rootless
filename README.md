@@ -125,3 +125,6 @@ The `gh-pages` branch is the shared **Rashad Repo** Sileo source. Its publisher 
 
 
 NFCCard 0.3.6 has been synchronized into the shared source.
+
+
+The Rashad Sileo repository also publishes NotifyGlow notification animations from https://github.com/Rshad97/NotifyGlow-Rootless.
