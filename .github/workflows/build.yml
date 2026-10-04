@@ -85,11 +85,14 @@ jobs:
           cd "$ADSHIELD_SRC/AdShield-Rootless"
 
           test "$(awk '/^Package:/{print $2}' control)" = "com.rshad.adshieldrootless"
-          test "$(awk '/^Version:/{print $2}' control)" = "1.0.0"
+          ADSHIELD_VERSION="$(awk '/^Version:/{print $2}' control)"
+          test -n "$ADSHIELD_VERSION"
           make clean package FINALPACKAGE=1
 
           ADSHIELD_DEB="$(pwd)/$(ls -t packages/*.deb | head -n 1)"
           test -s "$ADSHIELD_DEB"
+          test "$(dpkg-deb -f "$ADSHIELD_DEB" Package)" = "com.rshad.adshieldrootless"
+          test "$(dpkg-deb -f "$ADSHIELD_DEB" Version)" = "$ADSHIELD_VERSION"
           echo "ADSHIELD_DEB=$ADSHIELD_DEB" >> "$GITHUB_ENV"
           dpkg-deb -I "$ADSHIELD_DEB"
 
