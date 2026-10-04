@@ -136,6 +136,10 @@ jobs:
           NOTIFYGLOW_NAME="$(basename "$NOTIFYGLOW_RELATIVE")"
           curl -fsSL --retry 3             "https://raw.githubusercontent.com/Rshad97/NotifyGlow-Rootless/gh-pages/$NOTIFYGLOW_RELATIVE"             -o "$OUT/debs/$NOTIFYGLOW_NAME"
 
+          NOTIFYGLOW_SHA256="$(awk '/^Package: com.rshad.notifyglow$/{found=1} found && /^SHA256:/{print $2; exit}' "$RUNNER_TEMP/NotifyGlow-Packages")"
+          test -n "$NOTIFYGLOW_SHA256"
+          test "$(shasum -a 256 "$OUT/debs/$NOTIFYGLOW_NAME" | awk '{print $1}')" = "$NOTIFYGLOW_SHA256"
+
           : > "$OUT/Packages"
 
           for DEB in "$OUT"/debs/*.deb; do
@@ -152,6 +156,7 @@ jobs:
             REPLACES="$(dpkg-deb -f "$DEB" Replaces 2>/dev/null || true)"
             HOMEPAGE="$(dpkg-deb -f "$DEB" Homepage 2>/dev/null || true)"
             ICON="$(dpkg-deb -f "$DEB" Icon 2>/dev/null || true)"
+            NEEDS="$(dpkg-deb -f "$DEB" Needs 2>/dev/null || true)"
             DEB_NAME="$(basename "$DEB")"
             SIZE="$(stat -f%z "$DEB")"
             MD5="$(md5 -q "$DEB")"
@@ -173,6 +178,7 @@ jobs:
               [ -n "$REPLACES" ] && echo "Replaces: $REPLACES"
               [ -n "$HOMEPAGE" ] && echo "Homepage: $HOMEPAGE"
               [ -n "$ICON" ] && echo "Icon: $ICON"
+              [ -n "$NEEDS" ] && echo "Needs: $NEEDS"
               echo "Filename: ./debs/$DEB_NAME"
               echo "Size: $SIZE"
               echo "MD5sum: $MD5"
