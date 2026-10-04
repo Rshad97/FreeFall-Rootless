@@ -14,6 +14,6 @@ for item in items:
     if item.get('key') in ['impactEnabled','pocketMode','eventLogging','quietEnabled']:
         assert item['default'] is False
 info = plistlib.loads((root/'freefallprefs/Resources/Info.plist').read_bytes())
-assert info['CFBundleShortVersionString'] == '3.2.1'
-assert 'Version: 3.2.1\n' in (root/'control').read_text()
+assert info['CFBundleShortVersionString'] == '3.2.2'
+assert 'Version: 3.2.2\n' in (root/'control').read_text()
 print('PASS: eight-feature settings, action wiring, safe defaults and version metadata.')

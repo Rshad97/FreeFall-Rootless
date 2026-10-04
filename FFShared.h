@@ -6,7 +6,7 @@
 static NSString * const FFDomainName = @"com.rashad.freefallrootless";
 static NSString * const FFNotifyName = @"com.rashad.freefallrootless/ReloadPrefs";
 static inline NSArray<NSString *> *FFNames(void) {
-    return @[@"FreeFallScream", @"RashadDrop", @"Laser", @"Phaser", @"PowerDown", @"Zap", @"Alarm", @"Custom"];
+    return @[@"FreeFallScream", @"RashadDrop", @"Laser", @"Phaser", @"PowerDown", @"Zap", @"Alarm", @"Chicken", @"Custom"];
 }
 static inline NSString *FFDataDirectory(void) { return @"/var/mobile/Library/Application Support/FreeFallRootless"; }
 static inline NSString *FFDayKey(void) {

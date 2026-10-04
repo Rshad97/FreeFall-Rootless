@@ -1,3 +1,9 @@
+# 3.2.2 — 2026-10-04
+
+- Added Real Chicken: a real recorded hen alarm call by Rudmer_Rotteveel (CC0), without synthesis or pitch/time changes.
+- Available for selected sound, Shuffle inclusion, preview and impact sound.
+- Bundled mono 48 kHz 16-bit PCM audio; validated runtime/picker consistency and recording checksum.
+
 # 3.2.1 — 2026-09-28
 
 - Fixed a 3.2.0 runtime audio regression when a real free-fall event is detected in SpringBoard.

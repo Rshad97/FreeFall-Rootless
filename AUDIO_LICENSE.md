@@ -40,3 +40,15 @@ Converted to mono, 48 kHz, 16-bit PCM WAV with FFmpeg.
 | PowerDown.wav | highDown.mp3 |
 | Zap.wav | zapThreeToneDown.mp3 |
 | Alarm.wav | threeTone1.mp3 |
+
+## Added in 3.2.2: Real Chicken
+
+- Bundled file: `Chicken.wav`
+- Recording: **Chicken Single Alarm Call**, by **Rudmer_Rotteveel**, July 20, 2015.
+- Source: https://freesound.org/people/Rudmer_Rotteveel/sounds/316920/
+- Downloaded high-quality preview: https://cdn.freesound.org/previews/316/316920_4921277-hq.mp3
+- License: **CC0 1.0 Universal**, https://creativecommons.org/publicdomain/zero/1.0/
+- The recordist describes his own chicken calling after spotting a cat, recorded with a Samson Q7 microphone through a Phonic AM85 mixer. This is a real animal recording, not synthesized audio or a human imitation.
+- Converted with FFmpeg to mono, 48 kHz, 16-bit PCM WAV for System Sound Services. No pitch shift, time stretch, generated additions, or creative effects.
+- Source MP3 SHA-256: `cbdb7f681b23b37050b802636a7eea78c4e6782043a1aafa829b69372ac2c7e8`
+- Bundled WAV SHA-256: `ac047c21147e9327bd08183994630fdc211e483d53b1275ca6cdb6276b882934`

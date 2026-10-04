@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.2.1**
+- Version: **3.2.2**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -36,7 +36,7 @@ SpringBoard fall/impact playback uses System Sound Services for short PCM WAV ef
 - Adjustable impact/reset threshold
 - CoreMotion callback-based monitoring instead of a polling timer
 - Cooldown/reset logic to avoid repeated triggers during one fall
-- Six additional bundled sounds: Rashad Drop (original), Laser, Phaser, Power Down, Zap, Digital Alarm
+- Seven additional bundled sounds: Rashad Drop (original), Laser, Phaser, Power Down, Zap, Digital Alarm, Real Chicken (field recording)
 - Selected Sound picker and Shuffle switch in Settings → FreeFall Rootless → Sounds
 - Shuffle selects a playable sound on every fall and avoids consecutive repeats
 - Replaceable WAV sound at `/var/jb/Library/FreeFallRootless/FreeFallScream.wav`

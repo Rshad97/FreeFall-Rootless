@@ -122,6 +122,7 @@
 				<string>PowerDown</string>
 				<string>Zap</string>
 				<string>Alarm</string>
+				<string>Chicken</string>
 				<string>Custom</string>
 			</array>
 			<key>validTitles</key>
@@ -133,6 +134,7 @@
 				<string>Power Down</string>
 				<string>Zap</string>
 				<string>Digital Alarm</string>
+				<string>Real Chicken</string>
 				<string>Custom Sound</string>
 			</array>
 		</dict>
@@ -274,6 +276,20 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>label</key>
+			<string>Real Chicken</string>
+			<key>key</key>
+			<string>include_Chicken</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>defaults</key>
+			<string>com.rashad.freefallrootless</string>
+			<key>PostNotification</key>
+			<string>com.rashad.freefallrootless/ReloadPrefs</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
 			<string>Custom Sound</string>
 			<key>key</key>
 			<string>include_Custom</string>
@@ -326,6 +342,7 @@
 				<string>PowerDown</string>
 				<string>Zap</string>
 				<string>Alarm</string>
+				<string>Chicken</string>
 				<string>Custom</string>
 			</array>
 			<key>validTitles</key>
@@ -337,6 +354,7 @@
 				<string>Power Down</string>
 				<string>Zap</string>
 				<string>Digital Alarm</string>
+				<string>Real Chicken</string>
 				<string>Custom Sound</string>
 			</array>
 		</dict>
