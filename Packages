@@ -10,11 +10,11 @@ Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
 Filename: ./debs/com.rashad.freefallrootless_3.2.2_iphoneos-arm64.deb
-Size: 550590
-MD5sum: 34108140a41feee90f0a4df751ee51e7
-SHA1: 95e95c5e7df496b237731f4b82c23256df96cfe6
-SHA256: 512845595da4300ce9c4fa483a90b64cbba39bbb88ecaa275bf6d1af08d337f3
-SHA512: 510334ceaf0a4428ad0b7557c7c23a9ce3dc7bb1cc5828c3cf37327c858af7692ddc27b059eb332bbff7b9966a9eff686a5f2f3054615d2f955dabbdb0db11e4
+Size: 550516
+MD5sum: f973bad2f1df0a591dec6d6783c13040
+SHA1: 3a02f7d9ba2f4ae151f8aa81a0dad57f62466de7
+SHA256: 09ad6055cf97b1e3ca7eabe7e1d678d199658b2486b039c523407285cf03dbbf
+SHA512: 1dcd87446f5316215d6f3cfc08648bbcf6255a0f7003c5589d2d80f4d3f8b853d3c737ca6da9f4a1d3e82d2ad494874be4235d3066ff94223c776e51fab765ee
 
 Package: com.rashad.nfccard
 Name: NFCCard
@@ -48,26 +48,26 @@ Replaces: com.rshad.adshield
 Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
 Icon: https://rshad97.github.io/FreeFall-Rootless/assets/adshield.png
 Filename: ./debs/com.rshad.adshieldrootless_1.1.1_iphoneos-arm64.deb
-Size: 85184
-MD5sum: 1400119a073f6bd387ac12a5084b9bda
-SHA1: a46eab6f82e75468544c54e79cf5c16806e6bc43
-SHA256: 81569833318cbd99f4caecdf8ccca01576aab69fce833d958769ada8f32f081f
-SHA512: cfe42794fe447fed82a8157834cba7ec2b38cc764f131d035388c65426c89c0ff64521806c93368b3ccaa613b75bdb59b1e4f6bdc20d93a05624186091a4deea
+Size: 85236
+MD5sum: 44c62d1f91a331318a19178c0f9a6d94
+SHA1: 70fc150d4a6febd38c8db9d28aec314d6edc0049
+SHA256: 5d3be52d39b3dd2bcd192dd55e00191a03a5c23b187dde48efef3f60e3525c82
+SHA512: 483174b0d35e72e5f130de367310038bff45ed8d8719cb4c4a28612288c79eca0f0ac2f9a0129e99ae9cce2cabb0fa0c9a4320bcb49707315ec1daa9421097ee
 
 Package: com.rshad.notifyglow
 Name: NotifyGlow
-Version: 1.0.0
+Version: 1.0.1
 Architecture: iphoneos-arm64
 Description: App-colored edge, notch and wave notification animations. Initial device-validation build.
 Maintainer: Rshad97
 Author: Rshad97
 Section: Tweaks
-Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0)
+Depends: firmware (>= 15.0), ellekit, preferenceloader
 Homepage: https://github.com/Rshad97/NotifyGlow-Rootless
-Filename: ./debs/com.rshad.notifyglow_1.0.0_iphoneos-arm64.deb
-Size: 23532
-MD5sum: caa2b067666c58934f1b4530cff98c35
-SHA1: d94e6409d90a72738cf2090f1261f2f3386e0cb3
-SHA256: feeee0da1105afce77c0c2ba66847481256e74e1df2fb079fabb445f2e15e94c
-SHA512: 67f1c1eb3d2a143bc214184e5159c27e3374c807aecbfd8a7759b022ca0f7898ea3c94e8fe87042d19f75cc7896c6980cb54080ceb9b36e36f54b45f86e359e1
+Filename: ./debs/com.rshad.notifyglow_1.0.1_iphoneos-arm64.deb
+Size: 24470
+MD5sum: fefe3d5ecdc13f988dbd76efa4e2506d
+SHA1: 78f8e2b92cf8ba2b577afca6046ae24fe81c5d61
+SHA256: b657d789e2e1ec08e9c0256467ad4ac4b2bda115ed5cf80cac376b652f19290a
+SHA512: d665492b30f8168c2337a54274d276b8693cb8c855cee838a504586289c45e731806ae06d9393c46d7e305e7fac8fef99464972efe3946cce4a7f42cce4e38d7
 
