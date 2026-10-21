@@ -3,15 +3,15 @@ Label: Rashad Repo
 Suite: stable
 Version: 1.1
 Codename: ios
-Date: Tue, 20 Oct 2026 21:44:31 +0000
+Date: Wed, 21 Oct 2026 04:59:23 +0000
 Architectures: iphoneos-arm64
 Components: main
 Description: Rashad's Sileo repository for rootless jailbreak packages
 MD5Sum:
- 6dab851f5fcb2351e0607c3b0c8e8ce1             3311 Packages
- 491d1ea923e0aa4c6b6e04fe2e84f47c             1586 Packages.gz
- 8499b13b37a210f5d5dbd06e1fc0541b             1681 Packages.bz2
+ 349a493560302b41a784a80a11aeb155             3311 Packages
+ 0eda5cc508a472d27c3ac0eb2f428d82             1583 Packages.gz
+ 625bcbdbc3aa80930f7a27513d07b55f             1696 Packages.bz2
 SHA256:
- 7ca5222e9c6444eda4b261e81d43040e01c4975e4492d7e42f5c7902aeeb3585             3311 Packages
- 330bd90cbc366b0cf5dab5e2ba346d5b73a488b34e0b34cb8cfa8acb0836e571             1586 Packages.gz
- 7f35e615431a849ddbd9cb755087065acf52bcc7aa8886a1de8868e891761c0e             1681 Packages.bz2
+ f35b5f102b26cb6ab2b3ed315a41abcb858cbc1e5cce69474e8738f280c51d6c             3311 Packages
+ 0a6d93a5fd446956ecbdd685a1556e4d2a174299947f352861e647d3d84b994e             1583 Packages.gz
+ c383ab3e60a2bbacb5a16bbc66bff9dfb023ff28205d30443d7aae6555bafbb2             1696 Packages.bz2
