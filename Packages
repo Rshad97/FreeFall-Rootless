@@ -10,11 +10,11 @@ Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
 Filename: ./debs/com.rashad.freefallrootless_3.2.2_iphoneos-arm64.deb
-Size: 551196
-MD5sum: af3bf44ea90b6469522b6a3774cfa9cf
-SHA1: 61292bdf8d4c345602694b52c488b9f170a61e1d
-SHA256: 62e724c1cd5938a0e477a821887cf8d56ae25dbe0a17359731b53f7a02718a4f
-SHA512: fa583b02df432ebf1ef310027f29e1f1152cabb16aa20a2413e2a9bb25e0ae40ea75df9b0dcbac5f7f4a1dd245ff9ecc3bfd7ee29d4288ffec2cb2d416629628
+Size: 550038
+MD5sum: 94d0a3a465367e4a21bb5212134b47cb
+SHA1: 82929a69e0ad8083d3187f7c00d4d101bae9fc71
+SHA256: 77b73d0c71c8505141066ecfcad6a9551c190cb63be11c74bc2f43b53b053692
+SHA512: 04cecd34a862bd99258b95bbe41d0539eaec69282c1e19d6e599069e594fcb3e3c27fd8a84a64e10feb60db628934ca57264dadabb2d8d0ecf07000bb57f7b0e
 
 Package: com.rashad.nfccard
 Name: NFCCard
@@ -48,11 +48,11 @@ Replaces: com.rshad.adshield
 Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
 Icon: https://rshad97.github.io/FreeFall-Rootless/assets/adshield.png
 Filename: ./debs/com.rshad.adshieldrootless_1.1.1_iphoneos-arm64.deb
-Size: 85218
-MD5sum: 77b7c722406f1df0b51120cd0a7a1993
-SHA1: c8ba344643e45b9a87c4c56c9712b443daae7a0b
-SHA256: 0d834249f8cd7b39663103d11c9dcdb482f3acf74b178942a153b384cb60e0d4
-SHA512: e7e28e74a802f1d6096a24bc73407a4b5d9a4c65d72ed5b4c833f2da76cf0c65f7ce917daab4bdda46b4aff24d65a6c5c763f89ea825f6bc125f02cceb4d31e0
+Size: 85184
+MD5sum: 2fe6255c5080d3bc57cfc8f72f987c1c
+SHA1: e4a4cca217815b3586336dc297bf6de61823fe94
+SHA256: ffe445061bb4b3d0f376a769b64ec74a5a1c52ea8fe2f26e20dec4e6808b87d7
+SHA512: 3244fff8e89d03c530de4029496ade465f25d311b7225177da94ad0fe3e193946a310ecd6129e9dd49657b08392523db60127649e16c55ba7e2b258c4bdc2d6c
 
 Package: com.rshad.notifyglow
 Name: NotifyGlow
