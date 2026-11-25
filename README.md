@@ -4,7 +4,7 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 
 ## Status
 
-- Version: **3.2.2**
+- Version: **3.3.0**
 - Package ID: `com.rashad.freefallrootless`
 - Rootless package layout (`/var/jb`)
 - SpringBoard injection through ElleKit
@@ -13,6 +13,8 @@ An open-source rootless port of the classic **FreeFall** jailbreak tweak for mod
 - Tested successfully on an **A12 iPhone XS Max running Dopamine 3 rootless**
 
 ## Features
+
+Open **Settings → FreeFall Rootless → Minimum time between falls** to choose 1, 3, 5, or 10 seconds. The default is 1 second. The impact from the current fall can still trigger during the delay.
 
 ### New in 3.2.0
 

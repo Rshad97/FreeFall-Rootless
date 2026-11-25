@@ -11,23 +11,31 @@ int main(void) {
     assert(FFClamp(INFINITY,.01,.25,.04)==.04);
     assert(FFClamp(2,.01,.25,.04)==.25);
     FFState s={false,-1,-100};
-    assert(FFStep(&s,1,1,.04,6,0,false)==0);
-    assert(FFStep(&s,.01,2,.04,6,0,false)==1);
-    assert(FFStep(&s,.01,2.1,.04,6,0,false)==0);
-    assert(FFStep(&s,7,2.2,.04,6,0,false)==2);
-    assert(FFStep(&s,7,2.3,.04,6,0,false)==0);
-    assert(FFStep(&s,.01,2.4,.04,6,0,false)==0);
-    assert(FFStep(&s,.01,4,.04,6,0,false)==1);
-    assert(FFStep(&s,7,7,.04,6,0,false)==0); // expired, not impact
+    assert(FFStep(&s,1,1,.04,6,0,1,false)==0);
+    assert(FFStep(&s,.01,2,.04,6,0,1,false)==1);
+    assert(FFStep(&s,.01,2.1,.04,6,0,1,false)==0);
+    assert(FFStep(&s,7,2.2,.04,6,0,1,false)==2);
+    assert(FFStep(&s,7,2.3,.04,6,0,1,false)==0);
+    assert(FFStep(&s,.01,2.4,.04,6,0,1,false)==0);
+    assert(FFStep(&s,.01,4,.04,6,0,1,false)==1);
+    assert(FFStep(&s,7,7,.04,6,0,1,false)==0); // expired, not impact
     s=(FFState){false,-1,-100};
-    assert(FFStep(&s,.01,10,.04,6,.06,true)==0);
-    assert(FFStep(&s,.01,11,.04,6,.06,false)==0);
-    assert(FFStep(&s,.01,11.02,.04,6,.06,false)==0);
-    assert(FFStep(&s,1,11.03,.04,6,.06,false)==0); // reset short dip
-    assert(FFStep(&s,.01,12,.04,6,.06,false)==0);
-    assert(FFStep(&s,.01,12.07,.04,6,.06,false)==1);
-    assert(FFStep(&s,.01,12.1,.04,6,.06,true)==0);
+    assert(FFStep(&s,.01,10,.04,6,.06,1,true)==0);
+    assert(FFStep(&s,.01,11,.04,6,.06,1,false)==0);
+    assert(FFStep(&s,.01,11.02,.04,6,.06,1,false)==0);
+    assert(FFStep(&s,1,11.03,.04,6,.06,1,false)==0); // reset short dip
+    assert(FFStep(&s,.01,12,.04,6,.06,1,false)==0);
+    assert(FFStep(&s,.01,12.07,.04,6,.06,1,false)==1);
+    assert(FFStep(&s,.01,12.1,.04,6,.06,1,true)==0);
     assert(!s.falling);
-    assert(FFStep(&s,NAN,20,.04,6,0,false)==0);
+    assert(FFStep(&s,NAN,20,.04,6,0,1,false)==0);
+    // A long cooldown suppresses a second fall but still reports the first impact.
+    s=(FFState){false,-1,-100};
+    assert(FFStep(&s,.01,20,.04,6,0,5,false)==1);
+    assert(FFStep(&s,7,20.2,.04,6,0,5,false)==2);
+    assert(FFStep(&s,.01,23,.04,6,0,5,false)==0);
+    assert(FFStep(&s,1,23.1,.04,6,0,5,false)==0);
+    assert(FFStep(&s,.01,25,.04,6,0,5,false)==0);
+    assert(FFStep(&s,.01,25.1,.04,6,0,5,false)==1);
     puts("PASS: 13824 quiet-hour cases, threshold clamps, fall/impact/cooldown/timeout and pocket filtering.");
 }
