@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSDate *customDate;
 @property (nonatomic) BOOL enabled, shuffle, impactEnabled, pocket, logging, quiet, ownsProximity;
 @property (nonatomic) NSInteger quietStart, quietEnd;
-@property (nonatomic) double fallThreshold, impactThreshold;
+@property (nonatomic) double fallThreshold, impactThreshold, cooldown;
 - (void)reloadPreferences;
 - (void)handleEvent:(int)event magnitude:(double)g;
 @end
@@ -61,6 +61,7 @@
     self.quiet = FFBool(@"quietEnabled", NO);
     self.quietStart = (NSInteger)FFClamp(FFNumber(@"quietStart", 22), 0, 23, 22);
     self.quietEnd = (NSInteger)FFClamp(FFNumber(@"quietEnd", 7), 0, 23, 7);
+    self.cooldown = FFClamp(FFNumber(@"cooldownSeconds", 1), 1, 10, 1);
     self.fallThreshold = FFClamp(FFNumber(@"fallingSensitivity", .04), .01, .25, .04);
     self.impactThreshold = FFClamp(FFNumber(@"stoppingSensitivity", 6), 2, 8, 6);
     self.selected = FFString(@"selectedSound", @"FreeFallScream");
@@ -125,7 +126,7 @@
         CMAcceleration a = data.acceleration;
         double g = sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
         BOOL blocked = s.pocket && UIDevice.currentDevice.proximityState;
-        int event = FFStep(&s->_state, g, data.timestamp, s.fallThreshold, s.impactThreshold, s.pocket ? .06 : 0, blocked);
+        int event = FFStep(&s->_state, g, data.timestamp, s.fallThreshold, s.impactThreshold, s.pocket ? .06 : 0, s.cooldown, blocked);
         if (event) [s handleEvent:event magnitude:g];
     }];
 }

@@ -10,7 +10,7 @@ static inline double FFClamp(double v, double lo, double hi, double fallback) {
 }
 typedef struct { bool falling; double lowSince; double triggered; } FFState;
 // 1: fall, 2: impact. Timeout is not an impact. Suppression resets the event.
-static inline int FFStep(FFState *s, double g, double now, double fall, double impact, double hold, bool suppressed) {
+static inline int FFStep(FFState *s, double g, double now, double fall, double impact, double hold, double cooldown, bool suppressed) {
     if (!isfinite(g) || !isfinite(now)) return 0;
     if (suppressed) { s->falling = false; s->lowSince = -1; return 0; }
     if (s->falling) {
@@ -20,7 +20,7 @@ static inline int FFStep(FFState *s, double g, double now, double fall, double i
     }
     if (g >= fall) { s->lowSince = -1; return 0; }
     if (s->lowSince < 0) s->lowSince = now;
-    if (now - s->triggered > 1 && now - s->lowSince >= hold) {
+    if (now - s->triggered > cooldown && now - s->lowSince >= hold) {
         s->falling = true; s->triggered = now; s->lowSince = -1; return 1;
     }
     return 0;

@@ -1,3 +1,7 @@
+# 3.3.0
+
+- Added a configurable interval between detected falls in Settings. The default preserves the original one-second cooldown.
+
 # 3.2.2 — 2026-10-04
 
 - Added Real Chicken: a real recorded hen alarm call by Rudmer_Rotteveel (CC0), without synthesis or pitch/time changes.
