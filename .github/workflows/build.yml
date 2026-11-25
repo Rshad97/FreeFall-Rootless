@@ -189,6 +189,7 @@ jobs:
             } >> "$OUT/Packages"
           done
 
+          (cd "$OUT" && shasum -a 256 debs/*.deb > SHA256SUMS)
           gzip -9c "$OUT/Packages" > "$OUT/Packages.gz"
           bzip2 -9c "$OUT/Packages" > "$OUT/Packages.bz2"
 
