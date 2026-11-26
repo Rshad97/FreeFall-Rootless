@@ -72,3 +72,27 @@ SHA1: 975dd4999d9c5c259a9c3297f8bdd6ed264f36cb
 SHA256: 23fda1323258d43e7d3751a7404ba27859c9fd23352b1b686e054f4c86cbbbbb
 SHA512: 8e9ae38d12f39872b0394a1e4821df637ffaed58b0e245c935b2b477248cd7c6ecd27358da7b90d0cf863b248fead2f121519ce6ed3d59c4a23b87b918498260
 
+Package: com.rashad.batteryguardian
+Name: BatteryGuardian – Rootless
+Description: Battery measurements, local history, charging reminders and reversible power profiles for rootless iOS.
+Maintainer: Rshad97
+Author: Rshad97
+Depends: firmware (>= 17.0), firmware (<< 18.0), ellekit, preferenceloader, uikittools
+Suggests: com.opa334.ccsupport
+Section: Utilities
+Tag: role::enduser
+Needs: respring
+Homepage: https://github.com/Rshad97/BatteryGuardian-Rootless
+Icon: https://rshad97.github.io/FreeFall-Rootless/assets/batteryguardian.png
+Depiction: https://rshad97.github.io/FreeFall-Rootless/depictions/batteryguardian/index.html
+SileoDepiction: https://rshad97.github.io/FreeFall-Rootless/depictions/batteryguardian/depiction.json
+Architecture: iphoneos-arm64
+Version: 1.0.0
+Installed-Size: 1204
+Filename: ./debs/com.rashad.batteryguardian_1.0.0_iphoneos-arm64.deb
+Size: 201638
+MD5sum: b248c99d27d93a57fd31b2f598735ade
+SHA1: c90fc6a9062a09478e42e9b568e476d64f238af4
+SHA256: 7fb86510e541dd6d1005d3d9aa0811b783bbc8eabf4668bcd5e7ea86dc0aef3d
+SHA512: 72a78394e8d454f376cec96206a7eef913d8048d2ab4de32a980739466a6f632f3fc63f91d0fd7ffbc825d3b7ee1523806a166c2cd30a7ce6b4c3fb53111df54
+
