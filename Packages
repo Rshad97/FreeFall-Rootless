@@ -1,6 +1,6 @@
 Package: com.rashad.freefallrootless
 Name: FreeFall Rootless
-Version: 3.2.2
+Version: 3.3.0
 Architecture: iphoneos-arm64
 Description: Rootless Dopamine/ElleKit FreeFall with configurable sounds, Shuffle, custom audio, impact sound, calibration, history, pocket filter and quiet hours.
 Maintainer: Rashad
@@ -9,16 +9,16 @@ Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Conflicts: com.chewmieser.freefall
 Replaces: com.chewmieser.freefall
-Filename: ./debs/com.rashad.freefallrootless_3.2.2_iphoneos-arm64.deb
-Size: 550426
-MD5sum: e3e8877c38de8c80cf559a930dad9707
-SHA1: eac0ee627edec85d02179ea1472b8c339e18be0d
-SHA256: 8fc3c2a8568a0b6d7a621feb694a9c5da2b500313cc4cdb16d68c2ef2de4eef1
-SHA512: ea67284249095518e917e24b46c25e5884610d1119d2a7de430e33969d99ec3413d9452c3febcfe57a0cfa24306df189401a65cf94f513b07189db8c29cde407
+Filename: ./debs/com.rashad.freefallrootless_3.3.0_iphoneos-arm64.deb
+Size: 550218
+MD5sum: ff4e9bc4999af25914fa9d548ae84040
+SHA1: 83167de844ffd79b3466ef942c2d763baba4e500
+SHA256: 5e1db6d98417c0f0dde695a5061c2c2e032e2c981ba5a10d6dda043d9604447f
+SHA512: 4f734d88c6cb784314ca639dfd8cb601105f298fceff7536fb1a20fbb381609b68d0deec0d060036639c97a66044507932c8c07b290238b083943069180a1125
 
 Package: com.rashad.nfccard
 Name: NFCCard
-Version: 0.5.0
+Version: 0.6.0
 Architecture: iphoneos-arm64
 Description: NFC research and interoperability toolkit with Protocol Atlas, Card Genome, Capability Map, Privacy Radar and Wallet Route Advisor.
 Maintainer: Rashad
@@ -27,16 +27,16 @@ Section: Applications
 Depends: firmware (>= 16.0)
 Homepage: https://github.com/Rshad97/NFCCard
 Icon: https://raw.githubusercontent.com/Rshad97/NFCCard/main/design/AppIconSource.png
-Filename: ./debs/com.rashad.nfccard_0.5.0_iphoneos-arm64.deb
-Size: 425256
-MD5sum: 70bce2f236a29fba6a0124031c56b0d2
-SHA1: d015617583945dc852c029eb342c14ec4b7afa9e
-SHA256: 68ca9fb7c5d500a15e79c01b11a8d1b5e1676631f53f524c6074596ba256faaf
-SHA512: 42a1cf6849bae92d28b92d795b99d15fbdf090d6dfaa82d1b3a6414b4848cdcf5111db9eb334cdb4b1135e9648e78a44fabd557666f0899019f8c23af8905a46
+Filename: ./debs/com.rashad.nfccard_0.6.0_iphoneos-arm64.deb
+Size: 429872
+MD5sum: 040da5aa72bc881744e2344fa4cc3ee6
+SHA1: e87d4a0504904257ee25ef8be63d7eae6e3347a0
+SHA256: 3436f88a746421cb789e493062119c20ec5a8c66f8dec598ad9d1ae12a0f1582
+SHA512: 034700d928e4236117bd3a125cae2d16494673c7b3afb1dc0b08ceffd9805fc62b647657616857607f4ca3962c19a17b50bd370f9485f65379cf9db517ec786a
 
 Package: com.rshad.adshieldrootless
 Name: AdShield-Rootless
-Version: 1.1.1
+Version: 1.2.0
 Architecture: iphoneos-arm64
 Description: Rootless system-wide ad and tracker filtering prototype for iOS 15+.
 Maintainer: Rashad
@@ -47,16 +47,16 @@ Conflicts: com.rshad.adshield
 Replaces: com.rshad.adshield
 Homepage: https://github.com/Rshad97/Rshad97/tree/main/AdShield-Rootless
 Icon: https://rshad97.github.io/FreeFall-Rootless/assets/adshield.png
-Filename: ./debs/com.rshad.adshieldrootless_1.1.1_iphoneos-arm64.deb
-Size: 85176
-MD5sum: 0e1df212662d63b10bc18ab5ca3c0339
-SHA1: 08dbbec95723bf53522542f456d46bb6e59b0772
-SHA256: ae18a79622f06e0d88ab77caf94254f3649ca19d5cb62ed79420d425655ebb34
-SHA512: 7082c904bc5d3cbb67ff1c0ee1c549118d0ce66543d5256a62444e40a35344a4a3fc402289b000f481e395cae651a8f0c4fd34bd50f764befe0c176b22f35f61
+Filename: ./debs/com.rshad.adshieldrootless_1.2.0_iphoneos-arm64.deb
+Size: 88140
+MD5sum: cdbe0b1e7761a6a0eee5b623c72e1623
+SHA1: 85d7e706fb7193e23cfc644c1ef16f31b4842c9c
+SHA256: 87a8f9a27ec767c2453e923a8046cedd24840e32b4447c1be491926e0d2655c6
+SHA512: 8a870dee07a4365a413661030445b2c14e177441d4c9a819081f029b7abeaf2ea867f89a563888a3afff80da93336aa85cd96a0011de413433c3662e79d9ae50
 
 Package: com.rshad.notifyglow
 Name: NotifyGlow
-Version: 1.0.2
+Version: 1.1.0
 Architecture: iphoneos-arm64
 Description: App-colored edge, notch and wave notification animations. Initial device-validation build.
 Maintainer: Rshad97
@@ -65,10 +65,10 @@ Section: Tweaks
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Homepage: https://github.com/Rshad97/NotifyGlow-Rootless
 Needs: respring
-Filename: ./debs/com.rshad.notifyglow_1.0.2_iphoneos-arm64.deb
-Size: 28508
-MD5sum: e4d5334729f843894cd469ac830ec8e3
-SHA1: 154259b067d463c9f0b22e8e20b3c721b182e328
-SHA256: c53e8b10ba6df001bb5fe20c6919e33b8e39a47bf668e1384e4860607a90bbd5
-SHA512: e53794503ca8c548937c7f8632ba1c143f2ab530466931f55adc152411fe7cfe7293d71e01f0106f0fd1bb9078faff27b7b07cdc6e1411a19bf72ce1e0e9faca
+Filename: ./debs/com.rshad.notifyglow_1.1.0_iphoneos-arm64.deb
+Size: 33336
+MD5sum: 4f52535d442f7eed917560401103239f
+SHA1: 975dd4999d9c5c259a9c3297f8bdd6ed264f36cb
+SHA256: 23fda1323258d43e7d3751a7404ba27859c9fd23352b1b686e054f4c86cbbbbb
+SHA512: 8e9ae38d12f39872b0394a1e4821df637ffaed58b0e245c935b2b477248cd7c6ecd27358da7b90d0cf863b248fead2f121519ce6ed3d59c4a23b87b918498260
 
